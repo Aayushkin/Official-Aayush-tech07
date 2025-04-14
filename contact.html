@@ -6,20 +6,79 @@
 
   <link rel="icon" href="/assets/images/tech.jpg">
     <link rel="stylesheet" href="assets/styles/style.css">
-  <style>
-    @media (max-width: 768px) {
-  /* Styles for tablets and smaller devices */
-}
-@media (max-width: 480px) {
-  /* Styles for mobile phones */
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-</style>
+    <style>
+      @media (max-width: 768px) {
+    /* Styles for tablets and smaller devices */
+  }
+  @media (max-width: 480px) {
+    /* Styles for mobile phones */
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+      /* Default - hide toggle button */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* Default - nav visible */
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  /* Responsive for mobile and small screens */
+  @media (max-width: 768px) {
+    nav ul {
+      display: none; /* hide nav links */
+      flex-direction: column;
+      background-color: #f8f8f8;
+      position: absolute;
+      top: 60px; /* adjust based on your header height */
+      right: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  
+    .menu-toggle {
+      display: block; /* show the toggle button */
+    }
+  
+    nav ul.active {
+      display: flex; /* show nav when active */
+    }
+  }
+  </style>
 </head>
 <body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+      <h1>Aayush Tech</h1>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="petition.html">Petition</a></li>
+      </ul>
+    </nav>
+  </header>
 <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>Feel free to reach out to us for any inquiries, projects, or collaborations. We would love to hear from you!</p>
@@ -67,6 +126,6 @@ img, video {
       <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
     </div>
   </footer>
-  
+  <script src="script.js"></script>
 </body>
 </html>
