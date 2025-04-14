@@ -19,6 +19,45 @@ img, video {
   max-width: 100%;
   height: auto;
 }
+    /* Default - hide toggle button */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Default - nav visible */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* Responsive for mobile and small screens */
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* hide nav links */
+    flex-direction: column;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 60px; /* adjust based on your header height */
+    right: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .menu-toggle {
+    display: block; /* show the toggle button */
+  }
+
+  nav ul.active {
+    display: flex; /* show nav when active */
+  }
+}
 </style>
 </head>
 <body>
@@ -26,6 +65,9 @@ img, video {
     <div class="logo">
       <h1>Aayush Tech</h1>
     </div>
+    <button class="menu-toggle" aria-label="Toggle Menu">
+  <i class="fas fa-bars"></i>
+</button>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
