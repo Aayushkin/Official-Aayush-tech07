@@ -59,17 +59,25 @@ nav ul {
   }
 }
     /* Logo Styling */
+/* Base styling for the logo */
 .logo {
-  height: 60px;
-  width: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  width: min(150px, 30vw); /* Ensures the logo doesn't exceed 150px or 30% of the viewport width */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 6px; /* Slightly rounded corners */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
 }
 
-/* Optional: Hover effect */
+/* Hover effect for interactivity */
 .logo:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+  transform: scale(1.05); /* Slightly enlarges the logo on hover */
+  cursor: pointer; /* Changes cursor to pointer on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .logo {
+    width: 100px; /* Reduces logo size on smaller screens */
+  }
 }
 
 </style>
