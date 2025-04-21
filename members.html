@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aayush-Tech07 Members</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center px-4 py-10">
+
+  <h1 class="text-4xl font-bold mb-6 text-center text-blue-400">🚀 Aayush-Tech07 Members</h1>
+
+  <!-- Form Section -->
+  <div class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md mb-10">
+    <h2 class="text-2xl mb-4 font-semibold text-white">Add a New Member</h2>
+    <form id="memberForm" class="flex flex-col gap-4">
+      <input type="text" id="name" placeholder="Full Name" required class="p-2 rounded text-black">
+      <textarea id="bio" placeholder="Short Bio" required class="p-2 rounded text-black"></textarea>
+      <input type="file" id="photo" accept="image/*" required class="text-white">
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold">Submit</button>
+    </form>
+  </div>
+
+  <!-- Members Display -->
+  <div id="membersList" class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 w-full max-w-6xl"></div>
+
+  <!-- Firebase Scripts -->
+  <script type="module">
+    // Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+    import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
+
+    // Your config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDcLlsbkwfUvx_B8Vl2GOptPYXf2PsFs18",
+      authDomain: "members-361ea.firebaseapp.com",
+      databaseURL: "https://members-361ea-default-rtdb.firebaseio.com",
+      projectId: "members-361ea",
+      storageBucket: "members-361ea.appspot.com",
+      messagingSenderId: "996084809296",
+      appId: "1:996084809296:web:c6ce716f57e87660e15b55"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const storage = getStorage(app);
+
+    const form = document.getElementById('memberForm');
+    const membersList = document.getElementById('membersList');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const bio = document.getElementById('bio').value.trim();
+      const file = document.getElementById('photo').files[0];
+
+      if (!name || !bio || !file) return alert("All fields are required!");
+
+      // Upload image to Firebase Storage
+      const imgRef = sRef(storage, 'members/' + file.name);
+      await uploadBytes(imgRef, file);
+      const imageUrl = await getDownloadURL(imgRef);
+
+      // Save member to database
+      const memberRef = ref(db, 'members');
+      push(memberRef, {
+        name,
+        bio,
+        photo: imageUrl
+      });
+
+      form.reset();
+      alert("Member added successfully!");
+    });
+
+    // Show members on page
+    const memberRef = ref(db, 'members');
+    onValue(memberRef, (snapshot) => {
+      membersList.innerHTML = '';
+      snapshot.forEach(child => {
+        const { name, bio, photo } = child.val();
+        const card = document.createElement('div');
+        card.className = "bg-gray-800 rounded-lg overflow-hidden shadow-lg p-4 text-center";
+        card.innerHTML = `
+          <img src="${photo}" alt="${name}" class="w-24 h-24 object-cover mx-auto rounded-full mb-3 border-2 border-blue-500">
+          <h3 class="text-xl font-semibold">${name}</h3>
+          <p class="text-sm text-gray-300 mt-1">${bio}</p>
+        `;
+        membersList.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
