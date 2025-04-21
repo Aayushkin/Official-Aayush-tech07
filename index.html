@@ -3,71 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aayush Tech - Home</title>
+  <meta name="google-adsense-account" content="ca-pub-5120077564481186">
+  <title>Aayush Tech - Custom Tech Solutions | Web & Software Development</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Aayush Tech provides innovative tech solutions, including web development, software design, IT consultation, and tech support. Empowering your digital future.">
+  <meta name="keywords" content="Aayush Tech, Web Development, Software Development, IT Consultation, Tech Support, Custom Tech Solutions, Nepal Tech Company, Digital Transformation">
+  <meta name="author" content="Aayush Tech">
+
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="Aayush Tech - Custom Tech & Web Solutions">
+  <meta property="og:description" content="Empowering your business with innovative technology. Explore our custom web and software solutions.">
+  <meta property="og:image" content="https://aayush-tech07.website/assets/images/techno.jpg">
+  <meta property="og:url" content="https://aayush-tech07.website">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aayush Tech - Innovative Digital Solutions">
+  <meta name="twitter:description" content="Discover top-tier tech services with Aayush Tech. We help businesses grow through smart solutions.">
+  <meta name="twitter:image" content="https://aayush-tech07.website/assets/images/techno.jpg">
+
+  <link rel="canonical" href="https://aayush-tech07.website/">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="icon" href="assets/images/tech.jpg">
+  <link rel="icon" href="assets/images/techno.jpg">
+
+  <!-- Structured Data (JSON-LD Schema) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Aayush Tech",
+    "url": "https://aayush-tech07.website",
+    "logo": "https://aayush-tech07.website/assets/images/techno.jpg",
+    "sameAs": [
+      "https://www.facebook.com/people/Aayush-tech07/100091516755478/",
+      "https://x.com/aayush_tech07",
+      "https://www.instagram.com/aayushtech07/",
+      "https://www.linkedin.com/in/aayush-bhandari-432093353/",
+      "https://github.com/Aayushkin"
+    ],
+    "description": "Aayush Tech provides custom technology solutions, including web development, IT consulting, and 24/7 tech support.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+977-XXXXXXXXXX",
+      "contactType": "Customer Service"
+    }
+  }
+  </script>
+
   <style>
-    @media (max-width: 768px) {
-  /* Styles for tablets and smaller devices */
-}
-@media (max-width: 480px) {
-  /* Styles for mobile phones */
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-}
     /* Default - hide toggle button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-}
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #333;
+      cursor: pointer;
+    }
 
-/* Default - nav visible */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
+    /* Default - nav visible */
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
 
-/* Responsive for mobile and small screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide nav links */
-    flex-direction: column;
-    background-color: #8bb645;
-    position: absolute;
-    top: 60px; /* adjust based on your header height */
-    right: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+    /* Responsive for mobile and small screens */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #8bb645;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
 
-  .menu-toggle {
-    display: block; /* show the toggle button */
-  }
+      .menu-toggle {
+        display: block;
+      }
 
-  nav ul.active {
-    display: flex; /* show nav when active */
-  }
-}
-</style>
+      nav ul.active {
+        display: flex;
+      }
+    }
+
+    /* Logo Styling */
+    .logo {
+      width: min(150px, 30vw);
+      height: auto;
+      border-radius: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        width: 100px;
+      }
+    }
+
+    /* Page Speed Enhancements */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+
+  </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <h1>Aayush Tech</h1>
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
     </div>
+    <h1>Aayush Tech</h1>
     <button class="menu-toggle" aria-label="Toggle Menu">
-  <i class="fas fa-bars"></i>
-</button>
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -82,35 +145,36 @@ nav ul {
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Empowering Your Business with Innovative Technology</h2>
-    <p>We provide custom tech solutions to help businesses grow and succeed.</p>
-    <a href="services.html" class="btn-main">Explore Our Services</a>
-  </section>
+  <main>
+    <section class="hero">
+      <h2>Empowering Your Business with Innovative Technology</h2>
+      <p>We provide custom tech solutions to help businesses grow and succeed.</p>
+      <a href="services.html" class="btn-main">Explore Our Services</a>
+    </section>
 
-  <section class="about">
-    <h2>About Aayush Tech</h2>
-    <p>Founded with the vision of transforming businesses through advanced technology, Aayush Tech has been providing top-tier IT solutions for over a decade. We specialize in custom software development, IT consultation, and cutting-edge web solutions.</p>
-    <p>Our team of professionals is dedicated to delivering results that drive business growth. Whether you're looking for help with developing software or implementing new technologies, we are here to assist you every step of the way.</p>
-  </section>
+    <section class="about">
+      <h2>About Aayush Tech</h2>
+      <p>Founded with the vision of transforming businesses through advanced technology, Aayush Tech has been providing top-tier IT solutions for over a decade. We specialize in custom software development, IT consultation, and cutting-edge web solutions.</p>
+      <p>Our team of professionals is dedicated to delivering results that drive business growth. Whether you're looking for help with developing software or implementing new technologies, we are here to assist you every step of the way.</p>
+    </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li><strong>Custom Tech Solutions</strong> - Tailored software solutions that meet your business needs.</li>
-      <li><strong>Web Development</strong> - Building robust, scalable, and user-friendly websites.</li>
-      <li><strong>Software Development</strong> - Developing custom applications for businesses of all sizes.</li>
-      <li><strong>IT Consultation</strong> - Strategic advice to optimize your technology infrastructure.</li>
-      <li><strong>Tech Support</strong> - 24/7 tech support to ensure your systems run smoothly.</li>
-    </ul>
-  </section>
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li><strong>Custom Tech Solutions</strong> - Tailored software solutions that meet your business needs.</li>
+        <li><strong>Web Development</strong> - Building robust, scalable, and user-friendly websites.</li>
+        <li><strong>Software Development</strong> - Developing custom applications for businesses of all sizes.</li>
+        <li><strong>IT Consultation</strong> - Strategic advice to optimize your technology infrastructure.</li>
+        <li><strong>Tech Support</strong> - 24/7 tech support to ensure your systems run smoothly.</li>
+      </ul>
+    </section>
 
-  <section class="cta">
-    <h3>Ready to Start?</h3>
-    <p>If you're looking for technology solutions that can propel your business forward, get in touch with us today.</p>
-    <a href="contact.html" class="btn-main">Contact Us</a>
-  </section>
-
+    <section class="cta">
+      <h3>Ready to Start?</h3>
+      <p>If you're looking for technology solutions that can propel your business forward, get in touch with us today.</p>
+      <a href="contact.html" class="btn-main">Contact Us</a>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer-content">
@@ -126,6 +190,21 @@ nav ul {
       <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
     </div>
   </footer>
+
   <script src="script.js"></script>
+
+  <!-- Start of Tawk.to Script -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/67ffe272e9af841915f4e73d/1iovop4gk';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!-- End of Tawk.to Script -->
 </body>
 </html>
