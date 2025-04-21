@@ -1,96 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Aayush-Tech07 Members</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+        }
+
+        /* Founder Section */
+        .founder {
+            display: flex;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .founder-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 4px solid #fff;
+        }
+
+        .founder-info h1 {
+            margin: 0;
+            font-size: 24px;
+            color: white;
+        }
+
+        .founder-info p {
+            font-size: 16px;
+            color: white;
+        }
+
+        /* Member (Branch) Section */
+        .branch {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .member {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .member-info h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .member-info p {
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .member-info p:first-child {
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center px-4 py-10">
+<body>
 
-  <h1 class="text-4xl font-bold mb-6 text-center text-blue-400">🚀 Aayush-Tech07 Members</h1>
+    <div class="container">
+        <!-- Founder Section -->
+        <div class="founder">
+            <img src="https://via.placeholder.com/100" alt="Founder" class="founder-avatar">
+            <div class="founder-info">
+                <h1>Aayush (Founder of Aayush-Tech07)</h1>
+                <p>Email: aayush@example.com</p>
+                <p>Role: Founder & CEO</p>
+            </div>
+        </div>
 
-  <!-- Form Section -->
-  <div class="bg-gray-800 p-6 rounded-xl shadow-lg w-full max-w-md mb-10">
-    <h2 class="text-2xl mb-4 font-semibold text-white">Add a New Member</h2>
-    <form id="memberForm" class="flex flex-col gap-4">
-      <input type="text" id="name" placeholder="Full Name" required class="p-2 rounded text-black">
-      <textarea id="bio" placeholder="Short Bio" required class="p-2 rounded text-black"></textarea>
-      <input type="file" id="photo" accept="image/*" required class="text-white">
-      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold">Submit</button>
-    </form>
-  </div>
+        <!-- Member Section -->
+        <h2>Our Team Member</h2>
 
-  <!-- Members Display -->
-  <div id="membersList" class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 w-full max-w-6xl"></div>
+        <div class="branch">
+            <div class="member">
+                <img src="https://via.placeholder.com/100" alt="Member" class="member-avatar">
+                <div class="member-info">
+                    <h3>John Doe</h3>
+                    <p>Email: john.doe@example.com</p>
+                    <p>Role: Software Developer</p>
+                </div>
+            </div>
+        </div>
 
-  <!-- Firebase Scripts -->
-  <script type="module">
-    // Firebase SDKs
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
-    import { getStorage, ref as sRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-storage.js";
+    </div>
 
-    // Your config
-    const firebaseConfig = {
-      apiKey: "AIzaSyDcLlsbkwfUvx_B8Vl2GOptPYXf2PsFs18",
-      authDomain: "members-361ea.firebaseapp.com",
-      databaseURL: "https://members-361ea-default-rtdb.firebaseio.com",
-      projectId: "members-361ea",
-      storageBucket: "members-361ea.appspot.com",
-      messagingSenderId: "996084809296",
-      appId: "1:996084809296:web:c6ce716f57e87660e15b55"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const storage = getStorage(app);
-
-    const form = document.getElementById('memberForm');
-    const membersList = document.getElementById('membersList');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const bio = document.getElementById('bio').value.trim();
-      const file = document.getElementById('photo').files[0];
-
-      if (!name || !bio || !file) return alert("All fields are required!");
-
-      // Upload image to Firebase Storage
-      const imgRef = sRef(storage, 'members/' + file.name);
-      await uploadBytes(imgRef, file);
-      const imageUrl = await getDownloadURL(imgRef);
-
-      // Save member to database
-      const memberRef = ref(db, 'members');
-      push(memberRef, {
-        name,
-        bio,
-        photo: imageUrl
-      });
-
-      form.reset();
-      alert("Member added successfully!");
-    });
-
-    // Show members on page
-    const memberRef = ref(db, 'members');
-    onValue(memberRef, (snapshot) => {
-      membersList.innerHTML = '';
-      snapshot.forEach(child => {
-        const { name, bio, photo } = child.val();
-        const card = document.createElement('div');
-        card.className = "bg-gray-800 rounded-lg overflow-hidden shadow-lg p-4 text-center";
-        card.innerHTML = `
-          <img src="${photo}" alt="${name}" class="w-24 h-24 object-cover mx-auto rounded-full mb-3 border-2 border-blue-500">
-          <h3 class="text-xl font-semibold">${name}</h3>
-          <p class="text-sm text-gray-300 mt-1">${bio}</p>
-        `;
-        membersList.appendChild(card);
-      });
-    });
-  </script>
 </body>
 </html>
