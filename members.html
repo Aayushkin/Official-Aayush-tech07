@@ -96,20 +96,24 @@
         .member-info p:first-child {
             font-weight: bold;
         }
-.membership-btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .membership-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1877f2; /* Facebook blue */
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+  z-index: 9999;
 }
 
 .membership-btn:hover {
-    background-color: #218838;
+  background-color: #0e63c1;
 }
     </style>
 </head>
@@ -142,7 +146,7 @@
 
     </div>
     <!-- HTML -->
-<a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" class="membership-btn">Get Membership for Free</a>
+<a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" class="membership-btn">Join Us</a>
 
 
 
