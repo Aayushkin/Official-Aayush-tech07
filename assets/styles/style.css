@@ -8,7 +8,7 @@
 /* Body */
 body {
   font-family: 'Georgia', serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: #333;
   line-height: 1.6;
 }
