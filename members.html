@@ -162,6 +162,107 @@
 .membership-btn:hover {
   background-color: #0e63c1;
 }
+
+/* --- Modal Styles for Member Photo Fullscreen --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(20, 20, 30, 0.95);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.25s;
+    opacity: 0;
+    pointer-events: none;
+}
+.modal.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-content {
+    background: transparent;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 96vw;
+    max-height: 96vh;
+}
+.modal-content img {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+    background: #fff;
+    object-fit: contain;
+    transition: box-shadow 0.2s;
+}
+.modal-close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    font-size: 2.5rem;
+    color: #fff;
+    background: #222b;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s;
+}
+.modal-close:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+#modalCaption {
+    color: #fff;
+    font-size: 1.15em;
+    margin-top: 18px;
+    text-align: center;
+    text-shadow: 0 2px 8px #000a;
+    max-width: 80vw;
+    word-break: break-word;
+}
+@media (max-width: 600px) {
+    .modal-content img {
+        max-width: 98vw;
+        max-height: 60vh;
+    }
+    #modalCaption {
+        font-size: 1em;
+        max-width: 95vw;
+    }
+    .modal-content {
+        max-width: 99vw;
+        max-height: 99vh;
+    }
+}
+#ha {
+    background: linear-gradient(90deg, #00eaff 0%, #00b7ff 100%);
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(0, 186, 255, 0.18);
+    border: 2px solid #00eaff;
+}
+#ha .member-info h3,
+#ha .member-info p {
+    color: #fff !important;
+}
+#ha .member-avatar {
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 4px #00eaff;
+}
     </style>
 </head>
 <body>
@@ -178,9 +279,29 @@
         </div>
 
         <!-- Member Section -->
-        <h2>Our Team Member</h2>
-
-        <div class="branch">
+        <h2>Our Team Member</h2>   
+         <div class="branch">
+                        <div class="member" id="ha">
+                            <img src="assets/images/4member.jpg" alt="Member" class="member-avatar">
+                            <div class="member-info">
+                                <h3>Bipin Xettri</h3>
+                                <p>Email: Bipin.@aayush-tech07.website</p>
+                                <p>Role: Manager</p>
+                            </div>
+                        </div>
+                    </div>  
+         <div class="branch">
+                    <div class="member" id="ha">
+                        <img src="assets/images/11member.jpg" alt="Member" class="member-avatar">
+                        <div class="member-info">
+                            <h3>Ashal Gaire</h3>
+                            <p>Email: Ashal.@aayush-tech07.website</p>
+                            <p>Role: Partner</p>
+                        </div>
+                    </div>
+                  
+        </div>
+          <div class="branch">
             <div class="member">
                 <img src="assets/images/1member.jpg" alt="Member" class="member-avatar">
                 <div class="member-info">
@@ -189,15 +310,8 @@
                     <p>Role: Web Developer</p>
                 </div>
             </div>
-              <div class="branch">
-                        <div class="member">
-                            <img src="assets/images/4member.jpg" alt="Member" class="member-avatar">
-                            <div class="member-info">
-                                <h3>Bipin Xettri</h3>
-                                <p>Email: Bipin.@aayush-tech07.website</p>
-                                <p>Role: Manager</p>
-                            </div>
-                        </div>
+            </div>
+          
             <div class="branch">
                 <div class="member">
                     <img src="assets/images/2member.jpg" alt="Member" class="member-avatar">
@@ -206,6 +320,7 @@
                         <p>Email: Prasana.@aayush-tech07.website</p>
                         <p>Role: Employ</p>
                     </div>
+                </div>
                 </div>
                 <div class="branch">
                     <div class="member">
@@ -216,6 +331,7 @@
                             <p>Role: Employ</p>
                         </div>
                     </div>
+                    </div>
                     <div class="branch">
                     <div class="member">
                         <img src="assets/images/5member.jpg" alt="Member" class="member-avatar">
@@ -224,6 +340,7 @@
                             <p>Email: Nishan.@aayush-tech07.website</p>
                             <p>Role: Employ</p>
                         </div>
+                    </div>
                     </div>
                     <div class="branch">
                     <div class="member">
@@ -234,6 +351,7 @@
                             <p>Role: Employ</p>
                         </div>
                     </div>
+                    </div>
                         <div class="branch">
                     <div class="member">
                         <img src="assets/images/7member.jpg" alt="Member" class="member-avatar">
@@ -242,6 +360,7 @@
                             <p>Email: Amit.@aayush-tech07.website</p>
                             <p>Role: Employ</p>
                         </div>
+                    </div>
                     </div>
                             <div class="branch">
                     <div class="member">
@@ -252,6 +371,7 @@
                             <p>Role: Employ</p>
                         </div>
                     </div>
+                </div>
                                 <div class="branch">
                     <div class="member">
                         <img src="assets/images/9member.jpg" alt="Member" class="member-avatar">
@@ -261,6 +381,8 @@
                             <p>Role: Employ</p>
                         </div>
                     </div>
+                    </div>
+         
                                     <div class="branch">
                     <div class="member">
                         <img src="assets/images/10member.jpg" alt="Member" class="member-avatar">
@@ -270,19 +392,87 @@
                             <p>Role: Employ</p>
                         </div>
                     </div>
-                    <div class="branch">
+                    </div>
+                               <div class="branch">
                     <div class="member">
-                        <img src="assets/images/11member.jpg" alt="Member" class="member-avatar">
+                        <img src="https://scontent.fmey1-1.fna.fbcdn.net/v/t39.30808-6/482248074_951586147145701_1547652866236716387_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=dCBFiW-2zbcQ7kNvwFWR7Ln&_nc_oc=AdnzrZG9XkyS0V3mriIjOY-jSzJaFfP2JTBzqmeLSFhNKRTJTvHfe97bcO0TPSnxS84&_nc_zt=23&_nc_ht=scontent.fmey1-1.fna&_nc_gid=XssiMzANcQYuNdjs_RqegQ&oh=00_AfIUGj8GC1csm0faxY49_TCvyaKUDDn2ZoSLjsL9gJGN8g&oe=68438AD4" alt="Member" class="member-avatar">
                         <div class="member-info">
-                            <h3>Ashal Gaire</h3>
-                            <p>Email: Ashal.@aayush-tech07.website</p>
+                            <h3>Aniket Tiwari</h3>
+                            <p>Email: Aniket.@aayush-tech07.website</p>
                             <p>Role: Employ</p>
                         </div>
                     </div>
-                  
-        </div>
+                    </div>
+          
 
     </div>
+<!-- Place this just before </body> -->
+<div class="modal" id="photoModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
+        <img src="" alt="Member Fullscreen" id="modalImg">
+        <div id="modalCaption" style="color:#222;font-size:1.1em;text-align:center;"></div>
+    </div>
+</div>
+<script>
+    // --- Best Toggle for Member Photo Modal with Scroll Fix and Clean UX ---
+const modal = document.getElementById('photoModal');
+const modalImg = document.getElementById('modalImg');
+const modalCaption = document.getElementById('modalCaption');
+let lastClickedImg = null;
+
+// Open or toggle modal on image click
+document.querySelectorAll('.member-avatar').forEach(img => {
+    img.style.cursor = "pointer";
+    img.addEventListener('click', function () {
+        // Toggle off if clicking the same image
+        if (modal.classList.contains('active') && lastClickedImg === this) {
+            closeModal();
+            return;
+        }
+        // Show modal with new image
+        modal.classList.add('active');
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+        lastClickedImg = this;
+        // Get member name and role for caption
+        const info = this.closest('.member').querySelector('.member-info');
+        const name = info?.querySelector('h3')?.textContent || '';
+        const role = info?.querySelectorAll('p')[1]?.textContent || '';
+        modalCaption.innerHTML = `<strong>${name}</strong><br>${role}`;
+        // Prevent background scroll
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Close modal helper
+function closeModal() {
+    modal.classList.remove('active');
+    lastClickedImg = null;
+    document.body.style.overflow = '';
+}
+// Close modal on close button
+document.getElementById('modalCloseBtn').onclick = closeModal;
+
+// Close modal on background click (not on image or caption)
+modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+});
+
+// Close modal on ESC key
+document.addEventListener('keydown', function (e) {
+    if (e.key === "Escape" && modal.classList.contains('active')) closeModal();
+});
+
+// Clean up modal image and caption after close for best UX
+modal.addEventListener('transitionend', function () {
+    if (!modal.classList.contains('active')) {
+        modalImg.src = '';
+        modalImg.alt = '';
+        modalCaption.innerHTML = '';
+    }
+});
+</script>
     <!-- HTML -->
 <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" class="membership-btn">Join Us</a>
 <footer class="footer">
