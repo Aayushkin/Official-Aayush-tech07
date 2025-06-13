@@ -1,772 +1,583 @@
-/* Basic Reset */
-* {
+/* ====== RESET & BASE ====== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
-
-/* Body */
+html {
+  scroll-behavior: smooth;
+}
 body {
-  font-family: 'Georgia', serif; /* Consider replacing with a more modern sans-serif font if a full site redesign is desired */
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #333;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #0a0f1a;
+  color: #eaf6fb;
+  min-height: 100vh;
   line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scrollbars that might appear due to animations */
+  overflow-x: hidden;
 }
 
-/* Animations and Transitions Utilities */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+/* ====== DIGITAL BACKGROUND ====== */
+.digital-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.digital-bg svg {
+  width: 100vw;
+  height: 100vh;
+  display: block;
 }
 
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Header & Navigation Styles */
+/* ====== HEADER & NAV ====== */
 header {
-  background: linear-gradient(to right, #1a2930, #283e51); /* Modern gradient background */
-  color: #f0f0f0; /* Light text color for contrast */
-  padding: 15px 30px; /* Adjusted padding */
+  position: relative;
+  z-index: 10;
+  background: rgba(10, 15, 26, 0.95);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  justify-content: space-between;
+  padding: 1.2rem 2.5vw;
+  box-shadow: 0 2px 24px 0 rgba(0,255,255,0.08);
+  border-bottom: 1px solid rgba(0,255,255,0.08);
 }
-
-/* Logo Styling */
-/* Adjusted logo size for a more compact header */
-.logo img { /* Targeting the img within the .logo div */
-  width: min(100px, 22vw); /* Reduced logo size */
-  height: auto;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
+.logo img {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  box-shadow: 0 0 24px #00f2fe44;
+  transition: transform 0.2s;
 }
-
 .logo img:hover {
-  transform: scale(1.08); /* Existing hover effect - verified */
+  transform: scale(1.08) rotate(-6deg);
 }
-
-/* Site Title Styling */
-header h1 {
-  font-size: 2.2rem; /* Adjusted font size */
-  letter-spacing: 0.5px;
-  font-weight: 700;
-  margin-left: 15px; /* Space between logo and title */
-  color: #ffffff; /* Ensure title is white */
+.digital-title {
+  font-family: 'Orbitron', 'Inter', Arial, sans-serif;
+  font-size: 2.1rem;
+  letter-spacing: 2px;
+  color: #00f2fe;
+  text-shadow: 0 2px 16px #00f2fe44;
+  margin-left: 1rem;
+  flex: 1;
 }
-
-/* Navigation Menu Styling */
-/* Adjusted nav link spacing and size for a more compact header */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #00f2fe;
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+}
 nav ul {
-  list-style-type: none;
   display: flex;
-  gap: 18px; /* Reduced gap between nav items */
-  /* Removed opacity/transform transition from base nav ul, mobile transitions are handled in the media query */
+  gap: 2.2rem;
+  list-style: none;
 }
-
-nav ul li {
-  display: inline;
-}
-
 nav ul li a {
+  color: #eaf6fb;
   text-decoration: none;
-  color: #f0f0f0;
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 0.85rem; /* Reduced font size for nav links */
-  padding: 7px 10px; /* Reduced padding for nav links */
-  border-radius: 4px;
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  font-weight: 600;
+  font-size: 1.08rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
 }
-
 nav ul li a:hover,
 nav ul li a.active-link {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  color: #0a0f1a;
 }
 
-/* Mobile Menu Toggle - styles already in index.html, will be handled there or moved if needed */
-
-/* Responsive adjustments for header elements */
-@media (max-width: 768px) {
-  header {
-    padding: 10px 15px; /* Reduced padding on smaller screens */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  }
-
-  header h1 {
-    font-size: 1.8rem; /* Smaller title on mobile */
-    margin-left: 10px;
-    margin-bottom: 10px; /* Add some margin if title wraps and pushes nav down */
-  }
-
-  /* Mobile Navigation Menu Styling */
-  nav { /* Ensure nav element itself can be a positioning context if needed */
-    position: relative;
-    flex-basis: 100%; /* Ensure nav takes full width when header wraps */
-    display: flex; /* For aligning toggle button to the right */
-    justify-content: flex-end; /* Align toggle button to the right */
-  }
-
-  /* Ensure the toggle button is ordered correctly if header h1 is too long */
-  .menu-toggle {
-    order: 1; /* If h1 pushes it down, this can help */
-  }
-
-
-  nav ul {
-    /* Overriding desktop styles for mobile menu */
-    display: flex; /* Keep flex for alignment, but direction is column */
-    flex-direction: column;
-    position: absolute;
-    top: calc(100% + 5px); /* Position below the header. Adjust 5px gap as needed */
-    right: 0; /* Align to the right of the header */
-    background-color: #283e51; /* Dark background for the dropdown */
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
-    width: clamp(200px, 50vw, 250px); /* Responsive width for the menu */
-    padding: 10px;
-    z-index: 1000; /* Ensure it's above other content */
-
-    /* Initial state for transition (hidden) */
-    opacity: 0;
-    transform: translateY(-10px); /* Start slightly above for a subtle dropdown effect */
-    visibility: hidden; /* Use visibility for better accessibility and to prevent interaction */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0.3s; /* Delay visibility until end of hide anim */
-  }
-
-  nav ul.active { /* This class will be toggled by JS to show the menu */
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0s; /* Visibility immediate on show */
-  }
-
-  nav ul li {
-    margin-bottom: 10px; /* Spacing for vertical items */
-  }
-
-  nav ul li a {
-    display: block; /* Make links take full width for easier tapping */
-  }
-}
-
-/* Hero Section - Modernized with Background Image */
+/* ====== HERO SECTION ====== */
 .hero {
-  text-align: center;
-  padding: 120px 30px;
-  /* Background image from Pexels with overlay for text readability */
-  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70vh;
+  padding: 5vw 8vw 2vw 8vw;
   position: relative;
+  z-index: 2;
+  gap: 3vw;
 }
-
-/* Hero content wrapper - ensure it's above any overlay if ::before was used on .hero directly */
 .hero-content {
- position: relative; /* If .hero had a ::before overlay, this content would need z-index */
- z-index: 2;
+  max-width: 540px;
+  z-index: 2;
 }
-
-.hero h2 {
-  font-size: 2.8rem; /* Slightly adjusted font size for balance */
-  font-weight: 700; /* Kept bold font weight */
-  line-height: 1.3; /* Improved line height for readability */
-  margin-bottom: 25px; /* Adjusted margin */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Slightly stronger text shadow for hero h2 */
-}
-
-.hero p {
-  font-size: 1.15rem; /* Slightly adjusted font size */
-  line-height: 1.7; /* Improved line height */
-  margin-bottom: 45px; /* Adjusted margin for spacing before CTA */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Added subtle text shadow for hero p */
-  max-width: 700px; /* Limit width for better readability on large screens */
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.1rem; /* Adjusted for 768px breakpoint */
-}
-
-/* Modernized Call to Action (CTA) Button in Hero */
-.hero .btn-main {
-  padding: 15px 30px; /* Slightly smaller padding for mobile */
-  font-size: 1.15rem; /* Adjusted for 768px breakpoint */
-  background-color: #4A90E2; /* A more vibrant, modern blue */
-  color: #ffffff;
-  padding: 18px 35px; /* Increased padding for a larger button */
-  text-decoration: none;
-  border-radius: 8px; /* Slightly rounded rectangle, more modern than pill */
-  font-size: 1.25rem; /* Slightly larger font */
-  font-weight: 600; /* Bolder text */
-  border: none; /* Removed border for a flatter, modern look */
-  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out; /* Unified timing */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Subtle shadow for button */
-}
-
-.hero .btn-main:hover,
-.hero .btn-main:focus { /* Added focus state for accessibility */
-  background-color: #357ABD; /* Darker shade on hover/focus */
-  transform: translateY(-3px); /* Slightly more lift on hover */
-  box-shadow: 0 7px 14px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
-}
-
-/* General Content Section Styling */
-.content-section { /* A common class for About and Services for consistent padding/background */
-  padding: 80px 30px;
-  background-color: #f8f9fa; /* Fallback or base color */
-  color: #343a40;
-  text-align: center;
-  padding: 60px 20px; /* Reduced padding for mobile */
-  position: relative; /* For potential overlays on sections */
-}
-
-/* Specific styling for About section background */
-.about.content-section {
-  /* Background image from Pexels with light overlay for text readability */
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  /* Ensure content is above the pseudo-element if an overlay were added that way */
-}
-.about.content-section > * { /* Direct children of .about like h2 and .about-content */
-    position: relative;
-    z-index: 2; /* If a ::before overlay was on .about */
-}
-
-
-.content-section h2 {
-  font-size: 2.2rem; /* Adjusted for 768px breakpoint */
-  font-weight: 700;
-  margin-bottom: 30px; /* Reduced margin for mobile */
-  color: #2c3e50; /* A deep blue, good for headings */
+.hero-content h2 {
+  font-family: 'Orbitron', 'Inter', Arial, sans-serif;
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 1.2rem;
   position: relative;
-  display: inline-block; /* To allow for pseudo-element underlining */
+  line-height: 1.1;
+  letter-spacing: 2px;
+}
+.glitch {
+  position: relative;
+  color: #fff;
+  animation: glitch 2.5s infinite linear alternate-reverse;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%; overflow: hidden;
+}
+.glitch::before {
+  color: #00f2fe;
+  z-index: 1;
+  clip-path: inset(0 0 60% 0);
+  animation: glitchTop 2.5s infinite linear alternate-reverse;
+}
+.glitch::after {
+  color: #4facfe;
+  z-index: 2;
+  clip-path: inset(60% 0 0 0);
+  animation: glitchBottom 2.5s infinite linear alternate-reverse;
+}
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #00f2fe, -2px 0 #4facfe; }
+  20% { text-shadow: -2px 2px #00f2fe, 2px -2px #4facfe; }
+  40% { text-shadow: 2px -2px #00f2fe, -2px 2px #4facfe; }
+  60% { text-shadow: -2px -2px #00f2fe, 2px 2px #4facfe; }
+  80% { text-shadow: 2px 2px #00f2fe, -2px -2px #4facfe; }
+  100% { text-shadow: 0 0 #00f2fe, 0 0 #4facfe; }
+}
+@keyframes glitchTop {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(-2px,-2px); }
+  40% { transform: translate(-4px,2px); }
+  60% { transform: translate(2px,-4px); }
+  80% { transform: translate(4px,4px); }
+  100% { transform: translate(0,0); }
+}
+@keyframes glitchBottom {
+  0% { transform: translate(0,0); }
+  20% { transform: translate(2px,2px); }
+  40% { transform: translate(4px,-2px); }
+  60% { transform: translate(-2px,4px); }
+  80% { transform: translate(-4px,-4px); }
+  100% { transform: translate(0,0); }
+}
+.hero-content p {
+  font-size: 1.18rem;
+  color: #b3e0f7;
+  margin-bottom: 2rem;
+}
+.btn-main {
+  display: inline-block;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  color: #0a0f1a;
+  font-weight: bold;
+  padding: 0.85rem 2.2rem;
+  border-radius: 32px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 24px #00f2fe33;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-main:hover,
+.btn-main:focus {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+}
+.hero-visual img {
+  width: 380px;
+  max-width: 40vw;
+  border-radius: 24px;
+  box-shadow: 0 8px 48px #00f2fe33;
+  filter: brightness(1.1) contrast(1.1) saturate(1.2);
+  animation: float 4s ease-in-out infinite alternate;
+}
+@keyframes float {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-18px);}
 }
 
-.content-section h2::after { /* Underline accent for headings */
+/* ====== REVEAL ON SCROLL ====== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ====== CONTENT SECTIONS ====== */
+.content-section {
+  padding: 5vw 8vw;
+  background: rgba(10, 15, 26, 0.92);
+  border-radius: 24px;
+  margin: 3vw 0;
+  box-shadow: 0 2px 24px #00f2fe11;
+  position: relative;
+  z-index: 2;
+}
+.content-section h2 {
+  font-family: 'Orbitron', 'Inter', Arial, sans-serif;
+  font-size: 2.2rem;
+  color: #00f2fe;
+  margin-bottom: 2rem;
+  position: relative;
+  letter-spacing: 1.5px;
+}
+.content-section h2::after {
   content: '';
   display: block;
   width: 60px;
   height: 4px;
-  background-color: #4A90E2; /* Accent color from hero button */
-  margin: 10px auto 0; /* Center the underline */
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  border-radius: 2px;
+  margin-top: 10px;
 }
 
-/* About Section Styling */
-.about {
-  /* Inherits .content-section styles */
-}
-
-.about-content { /* Wrapper for potential multi-column layout */
+/* ====== ABOUT SECTION ====== */
+.about-content {
   display: flex;
+  gap: 3vw;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 30px;
-  text-align: left; /* Align text to left for paragraphs */
-  justify-content: center;
 }
-
 .about-column {
-  flex: 1 1 400px; /* Flex basis for columns, allows wrapping */
-  max-width: 550px; /* Max width for readability */
+  flex: 1 1 260px;
 }
-
-.about p {
-  font-size: 1rem; /* Adjusted for 768px breakpoint */
-  line-height: 1.75;
-  margin-bottom: 20px;
-  color: #555;
+.about-list {
+  list-style: none;
+  margin-top: 1.2rem;
 }
-
-/* Services Section */
-.services.content-section {
-  /* Background image from Pexels with light overlay */
-  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  background-size: cover;
-  background-position: center;
-  color: #343a40; /* Ensure text color contrasts with potential image areas */
-}
-.services.content-section > * { /* Direct children of .services like h2 and ul */
-    position: relative;
-    z-index: 2; /* If a ::before overlay was on .services */
-}
-
-
-/* Services List - Card Layout */
-.services ul {
-  list-style-type: none;
-  padding: 0;
+.about-list li {
+  font-size: 1.08rem;
+  margin-bottom: 0.7rem;
+  color: #b3e0f7;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px; /* Reduced gap for mobile */
-  justify-content: center;
+  align-items: center;
+  gap: 0.7em;
 }
-
-.services ul li {
-  background-color: rgba(255, 255, 255, 0.92); /* Slightly translucent white for cards to let section bg subtly show */
-  border-radius: 10px;
-  padding: 25px; /* Reduced padding for mobile */
-  flex: 1 1 280px; /* Adjust flex-basis for mobile, allow slightly narrower cards */
-  max-width: 350px; /* Keep max-width or adjust if needed */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  text-align: left;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.services ul li:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.services ul li i {
-  font-size: 2.2rem; /* Slightly smaller icons for mobile */
-  color: #4A90E2;
-  margin-bottom: 15px;
+.about-img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #00f2fe22;
+  margin: 0 auto;
   display: block;
+}
+
+/* ====== SERVICES SECTION ====== */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5vw;
+  margin-top: 2.5vw;
+  list-style: none;
+}
+.services-list li {
+  background: rgba(20, 30, 46, 0.98);
+  border-radius: 18px;
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  box-shadow: 0 2px 24px #00f2fe11;
   text-align: center;
-}
-
-.services ul li strong {
-  display: block;
-  font-size: 1.25rem; /* Adjusted for mobile */
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #2c3e50;
-}
-
-.services ul li span {
-  font-size: 0.95rem; /* Adjusted for mobile */
-  line-height: 1.6;
-  color: #555;
-}
-
-
-/* Call to Action (CTA) Section - Revamped & Harmonized */
-.cta {
-  text-align: center;
-  padding: 80px 20px; /* Reduced padding for mobile */
-  /* Adjusted gradient to harmonize with blue theme */
-  background: linear-gradient(135deg, #2c3e50, #4A90E2);
-  color: #ffffff;
+  transition: transform 0.18s, box-shadow 0.18s;
   position: relative;
+  overflow: hidden;
+}
+.services-list li:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 48px #00f2fe33;
+}
+.services-list i {
+  font-size: 2.2rem;
+  color: #00f2fe;
+  margin-bottom: 1rem;
+}
+.services-list strong {
+  display: block;
+  font-size: 1.18rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.services-list span {
+  color: #b3e0f7;
+  font-size: 1rem;
 }
 
-.cta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 1;
+/* ====== PROJECTS SECTION ====== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2vw;
+  margin-top: 2vw;
+}
+.project-item {
+  background: rgba(20, 30, 46, 0.98);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px #00f2fe11;
+  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex;
+  flex-direction: column;
+}
+.project-item:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 48px #00f2fe33;
+}
+.project-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #00f2fe22;
+}
+.project-info {
+  padding: 1.2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-info h3 {
+  color: #00f2fe;
+  font-size: 1.18rem;
+  margin-bottom: 0.5rem;
+}
+.project-info p {
+  color: #b3e0f7;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.project-info .btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  color: #0a0f1a;
+  font-weight: bold;
+  padding: 0.5rem 1.4rem;
+  border-radius: 24px;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 2px 12px #00f2fe22;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.project-info .btn:hover {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
 }
 
-.cta > * {
+/* ====== CTA SECTION ====== */
+.cta {
+  background: linear-gradient(90deg, #00f2fe11 0%, #4facfe11 100%);
+  border-radius: 24px;
+  padding: 3vw 8vw;
+  text-align: center;
+  margin: 4vw 0;
+  box-shadow: 0 2px 24px #00f2fe11;
   position: relative;
   z-index: 2;
 }
-
 .cta h3 {
-  font-size: 2.5rem; /* Adjusted for mobile */
-  font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-}
-
-.cta p {
-  font-size: 1.1rem; /* Adjusted for mobile */
-  line-height: 1.7;
-  margin-bottom: 30px; /* Reduced margin */
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.9;
-}
-
-/* CTA Button Styling */
-.cta .btn-main {
-  background-color: #FF6B6B;
-  color: #ffffff;
-  padding: 18px 35px; /* Reduced padding for mobile */
-  text-decoration: none;
-  border-radius: 50px;
-  font-size: 1.2rem; /* Adjusted for mobile */
-  font-weight: 700;
-  border: none;
-  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  display: inline-block;
-}
-
-.cta .btn-main:hover,
-.cta .btn-main:focus {
-  background-color: #e05252;
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 9px 22px rgba(0,0,0,0.28);
-}
-
-/* Footer */
-/* Footer styles are largely from the 'Modernized Footer Styling' block below.
-   Specific responsive adjustments for the footer within this 768px breakpoint if needed. */
-.footer {
-    padding: 50px 20px 30px; /* Adjusted padding for footer on mobile */
-}
-.footer h3 {
-    font-size: 1.5rem; /* Smaller title for footer on mobile */
-}
-.footer p.tagline {
-    font-size: 0.9rem;
-    margin-bottom: 20px;
-}
-.footer .socials a {
-    font-size: 1.5rem; /* Slightly smaller icons for footer on mobile */
-    margin: 0 10px; /* Reduced margin for social icons */
-}
-.footer-bottom-text {
-    font-size: 0.8rem;
-    padding-top: 20px;
-}
-
-
-/* Projects Section - No changes in this task, but good to be aware of for overall responsiveness */
-.projects {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.projects h2 {
+  font-family: 'Orbitron', 'Inter', Arial, sans-serif;
   font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: bold;
+  color: #00f2fe;
+  margin-bottom: 1rem;
 }
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  justify-items: center;
-}
-
-.project-item {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 350px;
-  transition: transform 0.3s ease;
-}
-
-.project-item:hover {
-  transform: translateY(-10px);
-}
-
-.project-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 20px;
-}
-
-.project-info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.project-info p {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.project-info .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.project-info .btn:hover {
-  background-color: #0056b3;
-}
-/* Contact Section - No changes in this task */
-.contact {
-  padding: 60px 20px;
-  background-color: #eaeaea;
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.contact p {
+.cta p {
+  color: #b3e0f7;
   font-size: 1.1rem;
-  margin-bottom: 40px;
-  color: #333;
+  margin-bottom: 2rem;
 }
 
+/* ====== CONTACT SECTION ====== */
 .contact-container {
   display: flex;
+  gap: 3vw;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  align-items: flex-start;
 }
-
 .contact-form, .contact-info {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  flex: 1 1 300px;
-  max-width: 500px;
+  flex: 1 1 260px;
 }
-
-.contact-form .form-group {
-  margin-bottom: 20px;
+.contact-form {
+  background: rgba(20, 30, 46, 0.98);
+  border-radius: 18px;
+  padding: 2rem 1.2rem;
+  box-shadow: 0 2px 24px #00f2fe11;
+  margin-bottom: 1.5rem;
 }
-
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+.form-group {
+  margin-bottom: 1.2rem;
 }
-
+.contact-form input,
 .contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form .btn {
-  background-color: #007bff;
-  color: #fff;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #00f2fe33;
+  background: #0a0f1a;
+  color: #eaf6fb;
   font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
 }
-
-.contact-form .btn:hover {
-  background-color: #0056b3;
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1.5px solid #00f2fe;
+  box-shadow: 0 0 8px #00f2fe44;
 }
-
+.contact-form .btn-main {
+  width: 100%;
+  margin-top: 0.5rem;
+}
 .contact-info h3 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-  color: #222;
+  color: #00f2fe;
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
 }
-
 .contact-info p {
-  margin: 10px 0;
+  color: #b3e0f7;
   font-size: 1rem;
-  color: #555;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
 }
-
+.social-links {
+  margin-top: 1.2rem;
+}
 .social-links a {
-  text-decoration: none;
-  color: #007bff;
-  margin: 0 5px;
-}
-
-.social-links a:hover {
-  text-decoration: underline;
-}
-
-/* Modernized Footer Styling */
-/* The old .footer block has been removed. */
-.footer {
-  background-color: #111827; /* Darker, more modern background (e.g., Tailwind's gray-900) */
-  color: #9ca3af; /* Lighter gray for text (e.g., Tailwind's gray-400) */
-  padding: 70px 30px 40px; /* Increased top padding, adjusted bottom padding */
-  text-align: center;
-}
-
-.footer-content { /* Wrapper for footer elements */
-  max-width: 1100px; /* Optional: constrain width on very large screens */
-  margin: 0 auto;
-}
-
-.footer h3 { /* Site name/brand in footer */
-  font-size: 1.75rem; /* Adjusted size for footer context */
-  color: #5294e2; /* A slightly softer, modern blue */
-  margin-bottom: 12px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.footer p.tagline { /* Specifically target tagline if needed, or use general p */
-  font-size: 0.95rem; /* Adjusted size */
-  margin-bottom: 30px;
-  line-height: 1.6;
-  color: #d1d5db; /* Lighter text for tagline (e.g., Tailwind's gray-300) */
-}
-
-.footer .socials {
-  margin-bottom: 30px;
-}
-
-.footer .socials a {
-  color: #9ca3af; /* Base color for icons */
-  margin: 0 15px; /* Increased spacing between icons */
-  font-size: 1.7rem; /* Larger icons for better visibility */
-  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out; /* Smoother timing */
+  color: #00f2fe;
+  font-size: 1.5rem;
+  margin-right: 1.2rem;
+  transition: color 0.2s, transform 0.2s;
   display: inline-block;
 }
+.social-links a:hover {
+  color: #4facfe;
+  transform: scale(1.15) rotate(-8deg);
+}
 
+/* ====== FOOTER ====== */
+.footer {
+  background: rgba(10, 15, 26, 0.98);
+  padding: 2vw 8vw 1vw 8vw;
+  border-top: 1px solid #00f2fe22;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.footer-content {
+  margin-bottom: 1vw;
+}
+.footer h3 {
+  color: #00f2fe;
+  font-family: 'Orbitron', 'Inter', Arial, sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.footer .tagline {
+  color: #b3e0f7;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.footer .socials a {
+  color: #00f2fe;
+  font-size: 1.3rem;
+  margin: 0 0.7rem;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
 .footer .socials a:hover {
-  color: #7dd3fc; /* Brighter, friendly blue on hover */
-  transform: scale(1.18) translateY(-3px); /* Enhanced lift and scale */
+  color: #4facfe;
+  transform: scale(1.12) rotate(-8deg);
 }
-
 .footer-bottom-text {
-  font-size: 0.875rem; /* Standard small text size */
-  color: #6b7280; /* Muted gray for copyright (e.g., Tailwind's gray-500) */
-  padding-top: 30px; /* Space above copyright text */
-  border-top: 1px solid #374151; /* Subtle separator line (e.g., Tailwind's gray-700) */
-  display: inline-block; /* To allow border to not span full width if footer content is narrower */
-  width: 100%; /* Make border span full width of footer-content or footer */
-  max-width: 600px; /* Max width for the copyright line itself */
+  color: #b3e0f7;
+  font-size: 0.95rem;
+  margin-top: 1vw;
+  opacity: 0.7;
 }
 
-.footer-bottom-text a {
-  color: #9ca3af; /* Match icon base color for consistency */
-  text-decoration: none;
-  transition: color 0.25s ease;
-}
-
-.footer-bottom-text a:hover {
-  color: #7dd3fc; /* Brighter blue on hover */
-  text-decoration: underline; /* Underline on hover for clarity */
-}
-
-/* Further Responsive Adjustments for Small Mobile Screens */
-@media (max-width: 480px) {
-  /* Header */
-  header {
-    padding: 10px; /* Even tighter padding */
-  }
-  header h1 {
-    font-size: 1.5rem; /* Further reduce site title size */
-    margin-left: 5px;
-  }
-  .logo img {
-    width: min(80px, 20vw); /* Smaller logo */
-  }
-  nav ul { /* Mobile menu */
-    width: clamp(180px, 60vw, 220px); /* Adjust width if needed */
-    right: 10px; /* Adjust position slightly */
-  }
-
-  /* Hero Section */
+/* ====== RESPONSIVE DESIGN ====== */
+@media (max-width: 1100px) {
   .hero {
-    padding: 80px 15px; /* Reduced padding */
+    flex-direction: column;
+    text-align: center;
+    gap: 2vw;
   }
-  .hero h2 {
-    font-size: 2rem; /* Smaller hero title */
+  .hero-visual img {
+    margin: 2vw auto 0 auto;
+    max-width: 80vw;
   }
-  .hero p {
-    font-size: 1rem; /* Smaller hero paragraph */
-    margin-bottom: 30px;
+  .about-content, .contact-container {
+    flex-direction: column;
+    gap: 2vw;
   }
-  .hero .btn-main {
-    padding: 12px 25px; /* Smaller button padding */
-    font-size: 1rem;
+}
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    padding: 1rem 4vw;
   }
-
-  /* Content Sections */
-  .content-section {
-    padding: 40px 15px; /* Reduced padding */
+  .digital-title {
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
   }
-  .content-section h2 {
-    font-size: 1.8rem; /* Smaller section titles */
-    margin-bottom: 20px;
+  nav ul {
+    flex-direction: column;
+    gap: 1.2rem;
+    background: rgba(10, 15, 26, 0.98);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    padding: 1.2rem 0.5rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 32px #00f2fe22;
+    display: none;
   }
-  .content-section h2::after { /* Smaller underline for section titles */
-    width: 40px;
-    height: 3px;
-    margin-top: 8px;
+  nav ul.active {
+    display: flex;
   }
-
-  /* About Section */
-  .about p {
-    font-size: 0.95rem; /* Smaller text */
+  .menu-toggle {
+    display: block;
   }
-  .about-column {
-    flex-basis: 100%; /* Ensure stacking, overriding 400px basis if screen is too small */
-  }
-
-
-  /* Services Section */
-  .services ul {
-    gap: 15px; /* Tighter gap for cards */
-  }
-  .services ul li {
-    padding: 20px; /* Tighter card padding */
-    flex-basis: 100%; /* Stack cards on very small screens */
-  }
-  .services ul li i {
-    font-size: 2rem; /* Smaller icons */
-  }
-  .services ul li strong {
-    font-size: 1.15rem; /* Smaller card titles */
-  }
-  .services ul li span {
-    font-size: 0.9rem; /* Smaller card text */
-  }
-
-  /* CTA Section */
+}
+@media (max-width: 600px) {
+  .content-section,
   .cta {
-    padding: 60px 15px; /* Reduced padding */
+    padding: 7vw 3vw;
+    border-radius: 12px;
   }
-  .cta h3 {
-    font-size: 2rem; /* Smaller CTA title */
-  }
-  .cta p {
-    font-size: 1rem; /* Smaller CTA paragraph */
-    margin-bottom: 25px;
-  }
-  .cta .btn-main {
-    padding: 15px 30px; /* Smaller button padding */
-    font-size: 1.1rem;
-  }
-
-  /* Footer */
   .footer {
-    padding: 40px 15px 20px; /* Reduced padding */
+    padding: 4vw 3vw 2vw 3vw;
   }
-  .footer h3 {
-    font-size: 1.3rem; /* Smaller footer title */
+  .hero-content h2 {
+    font-size: 1.5rem;
   }
-  .footer p.tagline {
-    font-size: 0.85rem;
-    margin-bottom: 15px;
+  .hero-visual img {
+    width: 90vw;
+    border-radius: 12px;
   }
-  .footer .socials a {
-    font-size: 1.4rem; /* Smaller social icons */
-    margin: 0 8px;
-  }
-  .footer-bottom-text {
-    font-size: 0.75rem; /* Smaller copyright text */
-    padding-top: 15px;
-  }
+}
+
+/* ====== SCROLLBAR ====== */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #0a0f1a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  border-radius: 8px;
 }
