@@ -7,33 +7,63 @@
 
 /* Body */
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Georgia', serif; /* Consider replacing with a more modern sans-serif font if a full site redesign is desired */
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: #333;
   line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrollbars that might appear due to animations */
 }
 
-/* Header */
+/* Animations and Transitions Utilities */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header & Navigation Styles */
 header {
-  background-color: #2d2d2d;
-  color: #fff;
-  padding: 20px;
+  background: linear-gradient(to right, #1a2930, #283e51); /* Modern gradient background */
+  color: #f0f0f0; /* Light text color for contrast */
+  padding: 15px 30px; /* Adjusted padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 3px solid #a6a6a6;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
-header .logo h1 {
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-  font-weight: 600;
+/* Logo Styling */
+.logo img { /* Targeting the img within the .logo div */
+  width: min(120px, 25vw); /* Slightly adjusted size */
+  height: auto;
+  border-radius: 8px; /* Slightly more rounded corners */
+  transition: transform 0.3s ease-in-out; /* Kept ease-in-out, good for this type of hover */
 }
 
+.logo img:hover {
+  transform: scale(1.08); /* Slightly more subtle hover scale */
+}
+
+/* Site Title Styling */
+header h1 {
+  font-size: 2.2rem; /* Adjusted font size */
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  margin-left: 15px; /* Space between logo and title */
+  color: #ffffff; /* Ensure title is white */
+}
+
+/* Navigation Menu Styling */
 nav ul {
   list-style-type: none;
   display: flex;
-  gap: 30px;
+  gap: 25px; /* Adjusted gap */
+  /* Removed opacity/transform transition from base nav ul, mobile transitions are handled in the media query */
 }
 
 nav ul li {
@@ -42,141 +72,334 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #f0f0f0; /* Light text color */
   font-weight: 500;
   text-transform: uppercase;
-  transition: color 0.3s;
+  padding: 8px 12px; /* Padding for better clickability */
+  border-radius: 4px; /* Rounded corners for links */
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out; /* Smoother/faster transition */
 }
 
-nav ul li a:hover {
-  color: #a6a6a6;
+nav ul li a:hover,
+nav ul li a.active-link { /* Style for active link can be added if js is used to set class */
+  background-color: rgba(255, 255, 255, 0.15); /* Slightly more visible background on hover */
+  color: #ffffff; /* White text on hover */
 }
 
-/* Hero Section */
+/* Mobile Menu Toggle - styles already in index.html, will be handled there or moved if needed */
+
+/* Responsive adjustments for header elements */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px; /* Reduced padding on smaller screens */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+
+  header h1 {
+    font-size: 1.8rem; /* Smaller title on mobile */
+    margin-left: 10px;
+    margin-bottom: 10px; /* Add some margin if title wraps and pushes nav down */
+  }
+
+  /* Mobile Navigation Menu Styling */
+  nav { /* Ensure nav element itself can be a positioning context if needed */
+    position: relative;
+    flex-basis: 100%; /* Ensure nav takes full width when header wraps */
+    display: flex; /* For aligning toggle button to the right */
+    justify-content: flex-end; /* Align toggle button to the right */
+  }
+
+  /* Ensure the toggle button is ordered correctly if header h1 is too long */
+  .menu-toggle {
+    order: 1; /* If h1 pushes it down, this can help */
+  }
+
+
+  nav ul {
+    /* Overriding desktop styles for mobile menu */
+    display: flex; /* Keep flex for alignment, but direction is column */
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 5px); /* Position below the header. Adjust 5px gap as needed */
+    right: 0; /* Align to the right of the header */
+    background-color: #283e51; /* Dark background for the dropdown */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    width: clamp(200px, 50vw, 250px); /* Responsive width for the menu */
+    padding: 10px;
+    z-index: 1000; /* Ensure it's above other content */
+
+    /* Initial state for transition (hidden) */
+    opacity: 0;
+    transform: translateY(-10px); /* Start slightly above for a subtle dropdown effect */
+    visibility: hidden; /* Use visibility for better accessibility and to prevent interaction */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0.3s; /* Delay visibility until end of hide anim */
+  }
+
+  nav ul.active { /* This class will be toggled by JS to show the menu */
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0s 0s; /* Visibility immediate on show */
+  }
+
+  nav ul li {
+    margin-bottom: 10px; /* Spacing for vertical items */
+  }
+
+  nav ul li a {
+    display: block; /* Make links take full width for easier tapping */
+  }
+}
+
+/* Hero Section - Modernized */
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  background-color: #003366;
-  color: #fff;
-  border-bottom: 2px solid #fff;
+  padding: 120px 30px; /* Increased padding for more whitespace */
+  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); /* Modern, darker gradient */
+  color: #f0f0f0; /* Light text color for contrast */
+  position: relative; /* For potential pseudo-elements or future additions */
+  /* Removed border-bottom for a cleaner look */
 }
 
 .hero h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  font-weight: 700;
+  font-size: 2.8rem; /* Slightly adjusted font size for balance */
+  font-weight: 700; /* Kept bold font weight */
+  line-height: 1.3; /* Improved line height for readability */
+  margin-bottom: 25px; /* Adjusted margin */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
 }
 
 .hero p {
-  font-size: 1.25rem;
-  margin-bottom: 40px;
+  font-size: 1.15rem; /* Slightly adjusted font size */
+  line-height: 1.7; /* Improved line height */
+  margin-bottom: 45px; /* Adjusted margin for spacing before CTA */
+  max-width: 700px; /* Limit width for better readability on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.1rem; /* Adjusted for 768px breakpoint */
 }
 
+/* Modernized Call to Action (CTA) Button in Hero */
 .hero .btn-main {
-  background-color: #a6a6a6;
-  color: #fff;
-  padding: 15px 30px;
+  padding: 15px 30px; /* Slightly smaller padding for mobile */
+  font-size: 1.15rem; /* Adjusted for 768px breakpoint */
+  background-color: #4A90E2; /* A more vibrant, modern blue */
+  color: #ffffff;
+  padding: 18px 35px; /* Increased padding for a larger button */
   text-decoration: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-  border: 2px solid #a6a6a6;
+  border-radius: 8px; /* Slightly rounded rectangle, more modern than pill */
+  font-size: 1.25rem; /* Slightly larger font */
+  font-weight: 600; /* Bolder text */
+  border: none; /* Removed border for a flatter, modern look */
+  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out; /* Unified timing */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Subtle shadow for button */
 }
 
-.hero .btn-main:hover {
-  background-color: #003366;
-  border-color: #003366;
+.hero .btn-main:hover,
+.hero .btn-main:focus { /* Added focus state for accessibility */
+  background-color: #357ABD; /* Darker shade on hover/focus */
+  transform: translateY(-3px); /* Slightly more lift on hover */
+  box-shadow: 0 7px 14px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
 }
 
-/* About Section */
-.about {
-  padding: 50px 20px;
-  background-color: #fff;
-  color: #333;
+/* General Content Section Styling */
+.content-section { /* A common class for About and Services for consistent padding/background */
+  padding: 80px 30px; /* Increased padding */
+  background-color: #f8f9fa; /* A very light grey for a clean, modern look */
+  color: #343a40; /* Darker text for better readability */
   text-align: center;
+  padding: 60px 20px; /* Reduced padding for mobile */
 }
 
-.about h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.content-section h2 {
+  font-size: 2.2rem; /* Adjusted for 768px breakpoint */
   font-weight: 700;
+  margin-bottom: 30px; /* Reduced margin for mobile */
+  color: #2c3e50; /* A deep blue, good for headings */
+  position: relative;
+  display: inline-block; /* To allow for pseudo-element underlining */
+}
+
+.content-section h2::after { /* Underline accent for headings */
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #4A90E2; /* Accent color from hero button */
+  margin: 10px auto 0; /* Center the underline */
+}
+
+/* About Section Styling */
+.about {
+  /* Inherits .content-section styles */
+}
+
+.about-content { /* Wrapper for potential multi-column layout */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  text-align: left; /* Align text to left for paragraphs */
+  justify-content: center;
+}
+
+.about-column {
+  flex: 1 1 400px; /* Flex basis for columns, allows wrapping */
+  max-width: 550px; /* Max width for readability */
 }
 
 .about p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  line-height: 1.8;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1rem; /* Adjusted for 768px breakpoint */
+  line-height: 1.75;
+  margin-bottom: 20px;
+  color: #555;
 }
 
 /* Services Section */
 .services {
-  padding: 50px 20px;
-  background-color: #f4f4f4;
-  color: #333;
-  text-align: center;
+  /* Inherits .content-section styles */
+  background-color: #ffffff;
+  color: #343a40;
 }
 
-.services h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
+/* Services List - Card Layout */
 .services ul {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Reduced gap for mobile */
+  justify-content: center;
 }
 
 .services ul li {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 25px; /* Reduced padding for mobile */
+  flex: 1 1 280px; /* Adjust flex-basis for mobile, allow slightly narrower cards */
+  max-width: 350px; /* Keep max-width or adjust if needed */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Call to Action */
+.services ul li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.services ul li i {
+  font-size: 2.2rem; /* Slightly smaller icons for mobile */
+  color: #4A90E2;
+  margin-bottom: 15px;
+  display: block;
+  text-align: center;
+}
+
+.services ul li strong {
+  display: block;
+  font-size: 1.25rem; /* Adjusted for mobile */
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.services ul li span {
+  font-size: 0.95rem; /* Adjusted for mobile */
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* Call to Action (CTA) Section - Revamped */
 .cta {
   text-align: center;
-  padding: 50px 20px;
-  background-color: #003366;
-  color: #fff;
+  padding: 80px 20px; /* Reduced padding for mobile */
+  background: linear-gradient(135deg, #3a6186, #89253e);
+  color: #ffffff;
+  position: relative;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.cta > * {
+  position: relative;
+  z-index: 2;
 }
 
 .cta h3 {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Adjusted for mobile */
+  font-weight: 700;
+  line-height: 1.3;
   margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
 }
 
 .cta p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
+  font-size: 1.1rem; /* Adjusted for mobile */
+  line-height: 1.7;
+  margin-bottom: 30px; /* Reduced margin */
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
 }
 
+/* CTA Button Styling */
 .cta .btn-main {
-  background-color: #a6a6a6;
-  color: #fff;
-  padding: 15px 30px;
+  background-color: #FF6B6B;
+  color: #ffffff;
+  padding: 18px 35px; /* Reduced padding for mobile */
   text-decoration: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-  border: 2px solid #a6a6a6;
+  border-radius: 50px;
+  font-size: 1.2rem; /* Adjusted for mobile */
+  font-weight: 700;
+  border: none;
+  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: inline-block;
 }
 
-.cta .btn-main:hover {
-  background-color: #003366;
-  border-color: #003366;
+.cta .btn-main:hover,
+.cta .btn-main:focus {
+  background-color: #e05252;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 9px 22px rgba(0,0,0,0.28);
 }
 
 /* Footer */
-footer {
-  background-color: #2d2d2d;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+/* Footer styles are largely from the 'Modernized Footer Styling' block below.
+   Specific responsive adjustments for the footer within this 768px breakpoint if needed. */
+.footer {
+    padding: 50px 20px 30px; /* Adjusted padding for footer on mobile */
 }
-/* Projects Section */
+.footer h3 {
+    font-size: 1.5rem; /* Smaller title for footer on mobile */
+}
+.footer p.tagline {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+.footer .socials a {
+    font-size: 1.5rem; /* Slightly smaller icons for footer on mobile */
+    margin: 0 10px; /* Reduced margin for social icons */
+}
+.footer-bottom-text {
+    font-size: 0.8rem;
+    padding-top: 20px;
+}
+
+
+/* Projects Section - No changes in this task, but good to be aware of for overall responsiveness */
 .projects {
   padding: 40px 20px;
   background-color: #f9f9f9;
@@ -245,7 +468,7 @@ footer {
 .project-info .btn:hover {
   background-color: #0056b3;
 }
-/* Contact Section */
+/* Contact Section - No changes in this task */
 .contact {
   padding: 60px 20px;
   background-color: #eaeaea;
@@ -333,49 +556,182 @@ footer {
 .social-links a:hover {
   text-decoration: underline;
 }
+
+/* Modernized Footer Styling */
+/* The old .footer block has been removed. */
 .footer {
-  background-color: #0f172a;
-  color: #94a3b8;
-  padding: 40px 20px;
+  background-color: #111827; /* Darker, more modern background (e.g., Tailwind's gray-900) */
+  color: #9ca3af; /* Lighter gray for text (e.g., Tailwind's gray-400) */
+  padding: 70px 30px 40px; /* Increased top padding, adjusted bottom padding */
   text-align: center;
 }
 
-.footer h3 {
-  margin-bottom: 10px;
-  font-size: 24px;
-  color: #38bdf8;
+.footer-content { /* Wrapper for footer elements */
+  max-width: 1100px; /* Optional: constrain width on very large screens */
+  margin: 0 auto;
 }
 
-.footer p {
-  margin-bottom: 20px;
-  font-size: 16px;
+.footer h3 { /* Site name/brand in footer */
+  font-size: 1.75rem; /* Adjusted size for footer context */
+  color: #5294e2; /* A slightly softer, modern blue */
+  margin-bottom: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.footer p.tagline { /* Specifically target tagline if needed, or use general p */
+  font-size: 0.95rem; /* Adjusted size */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #d1d5db; /* Lighter text for tagline (e.g., Tailwind's gray-300) */
 }
 
 .footer .socials {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .footer .socials a {
-  color: #94a3b8;
-  margin: 0 10px;
-  font-size: 22px;
-  transition: color 0.3s;
+  color: #9ca3af; /* Base color for icons */
+  margin: 0 15px; /* Increased spacing between icons */
+  font-size: 1.7rem; /* Larger icons for better visibility */
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out; /* Smoother timing */
+  display: inline-block;
 }
 
 .footer .socials a:hover {
-  color: #38bdf8;
+  color: #7dd3fc; /* Brighter, friendly blue on hover */
+  transform: scale(1.18) translateY(-3px); /* Enhanced lift and scale */
 }
 
 .footer-bottom-text {
-  font-size: 14px;
-  color: #94a3b8;
+  font-size: 0.875rem; /* Standard small text size */
+  color: #6b7280; /* Muted gray for copyright (e.g., Tailwind's gray-500) */
+  padding-top: 30px; /* Space above copyright text */
+  border-top: 1px solid #374151; /* Subtle separator line (e.g., Tailwind's gray-700) */
+  display: inline-block; /* To allow border to not span full width if footer content is narrower */
+  width: 100%; /* Make border span full width of footer-content or footer */
+  max-width: 600px; /* Max width for the copyright line itself */
 }
 
 .footer-bottom-text a {
-  color: #38bdf8;
+  color: #9ca3af; /* Match icon base color for consistency */
   text-decoration: none;
+  transition: color 0.25s ease;
 }
 
 .footer-bottom-text a:hover {
-  text-decoration: underline;
+  color: #7dd3fc; /* Brighter blue on hover */
+  text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* Further Responsive Adjustments for Small Mobile Screens */
+@media (max-width: 480px) {
+  /* Header */
+  header {
+    padding: 10px; /* Even tighter padding */
+  }
+  header h1 {
+    font-size: 1.5rem; /* Further reduce site title size */
+    margin-left: 5px;
+  }
+  .logo img {
+    width: min(80px, 20vw); /* Smaller logo */
+  }
+  nav ul { /* Mobile menu */
+    width: clamp(180px, 60vw, 220px); /* Adjust width if needed */
+    right: 10px; /* Adjust position slightly */
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 80px 15px; /* Reduced padding */
+  }
+  .hero h2 {
+    font-size: 2rem; /* Smaller hero title */
+  }
+  .hero p {
+    font-size: 1rem; /* Smaller hero paragraph */
+    margin-bottom: 30px;
+  }
+  .hero .btn-main {
+    padding: 12px 25px; /* Smaller button padding */
+    font-size: 1rem;
+  }
+
+  /* Content Sections */
+  .content-section {
+    padding: 40px 15px; /* Reduced padding */
+  }
+  .content-section h2 {
+    font-size: 1.8rem; /* Smaller section titles */
+    margin-bottom: 20px;
+  }
+  .content-section h2::after { /* Smaller underline for section titles */
+    width: 40px;
+    height: 3px;
+    margin-top: 8px;
+  }
+
+  /* About Section */
+  .about p {
+    font-size: 0.95rem; /* Smaller text */
+  }
+  .about-column {
+    flex-basis: 100%; /* Ensure stacking, overriding 400px basis if screen is too small */
+  }
+
+
+  /* Services Section */
+  .services ul {
+    gap: 15px; /* Tighter gap for cards */
+  }
+  .services ul li {
+    padding: 20px; /* Tighter card padding */
+    flex-basis: 100%; /* Stack cards on very small screens */
+  }
+  .services ul li i {
+    font-size: 2rem; /* Smaller icons */
+  }
+  .services ul li strong {
+    font-size: 1.15rem; /* Smaller card titles */
+  }
+  .services ul li span {
+    font-size: 0.9rem; /* Smaller card text */
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 60px 15px; /* Reduced padding */
+  }
+  .cta h3 {
+    font-size: 2rem; /* Smaller CTA title */
+  }
+  .cta p {
+    font-size: 1rem; /* Smaller CTA paragraph */
+    margin-bottom: 25px;
+  }
+  .cta .btn-main {
+    padding: 15px 30px; /* Smaller button padding */
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 40px 15px 20px; /* Reduced padding */
+  }
+  .footer h3 {
+    font-size: 1.3rem; /* Smaller footer title */
+  }
+  .footer p.tagline {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+  }
+  .footer .socials a {
+    font-size: 1.4rem; /* Smaller social icons */
+    margin: 0 8px;
+  }
+  .footer-bottom-text {
+    font-size: 0.75rem; /* Smaller copyright text */
+    padding-top: 15px;
+  }
 }
