@@ -38,15 +38,16 @@ header {
 }
 
 /* Logo Styling */
+/* Adjusted logo size for a more compact header */
 .logo img { /* Targeting the img within the .logo div */
-  width: min(120px, 25vw); /* Slightly adjusted size */
+  width: min(100px, 22vw); /* Reduced logo size */
   height: auto;
-  border-radius: 8px; /* Slightly more rounded corners */
-  transition: transform 0.3s ease-in-out; /* Kept ease-in-out, good for this type of hover */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .logo img:hover {
-  transform: scale(1.08); /* Slightly more subtle hover scale */
+  transform: scale(1.08); /* Existing hover effect - verified */
 }
 
 /* Site Title Styling */
@@ -59,10 +60,11 @@ header h1 {
 }
 
 /* Navigation Menu Styling */
+/* Adjusted nav link spacing and size for a more compact header */
 nav ul {
   list-style-type: none;
   display: flex;
-  gap: 25px; /* Adjusted gap */
+  gap: 18px; /* Reduced gap between nav items */
   /* Removed opacity/transform transition from base nav ul, mobile transitions are handled in the media query */
 }
 
@@ -72,18 +74,19 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #f0f0f0; /* Light text color */
+  color: #f0f0f0;
   font-weight: 500;
   text-transform: uppercase;
-  padding: 8px 12px; /* Padding for better clickability */
-  border-radius: 4px; /* Rounded corners for links */
-  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out; /* Smoother/faster transition */
+  font-size: 0.85rem; /* Reduced font size for nav links */
+  padding: 7px 10px; /* Reduced padding for nav links */
+  border-radius: 4px;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
 nav ul li a:hover,
-nav ul li a.active-link { /* Style for active link can be added if js is used to set class */
-  background-color: rgba(255, 255, 255, 0.15); /* Slightly more visible background on hover */
-  color: #ffffff; /* White text on hover */
+nav ul li a.active-link {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
 }
 
 /* Mobile Menu Toggle - styles already in index.html, will be handled there or moved if needed */
@@ -152,14 +155,22 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
   }
 }
 
-/* Hero Section - Modernized */
+/* Hero Section - Modernized with Background Image */
 .hero {
   text-align: center;
-  padding: 120px 30px; /* Increased padding for more whitespace */
-  background: linear-gradient(135deg, #2c5364, #203a43, #0f2027); /* Modern, darker gradient */
-  color: #f0f0f0; /* Light text color for contrast */
-  position: relative; /* For potential pseudo-elements or future additions */
-  /* Removed border-bottom for a cleaner look */
+  padding: 120px 30px;
+  /* Background image from Pexels with overlay for text readability */
+  background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  color: #f0f0f0;
+  position: relative;
+}
+
+/* Hero content wrapper - ensure it's above any overlay if ::before was used on .hero directly */
+.hero-content {
+ position: relative; /* If .hero had a ::before overlay, this content would need z-index */
+ z-index: 2;
 }
 
 .hero h2 {
@@ -167,13 +178,14 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
   font-weight: 700; /* Kept bold font weight */
   line-height: 1.3; /* Improved line height for readability */
   margin-bottom: 25px; /* Adjusted margin */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Slightly stronger text shadow for hero h2 */
 }
 
 .hero p {
   font-size: 1.15rem; /* Slightly adjusted font size */
   line-height: 1.7; /* Improved line height */
   margin-bottom: 45px; /* Adjusted margin for spacing before CTA */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3); /* Added subtle text shadow for hero p */
   max-width: 700px; /* Limit width for better readability on large screens */
   margin-left: auto;
   margin-right: auto;
@@ -205,12 +217,27 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
 
 /* General Content Section Styling */
 .content-section { /* A common class for About and Services for consistent padding/background */
-  padding: 80px 30px; /* Increased padding */
-  background-color: #f8f9fa; /* A very light grey for a clean, modern look */
-  color: #343a40; /* Darker text for better readability */
+  padding: 80px 30px;
+  background-color: #f8f9fa; /* Fallback or base color */
+  color: #343a40;
   text-align: center;
   padding: 60px 20px; /* Reduced padding for mobile */
+  position: relative; /* For potential overlays on sections */
 }
+
+/* Specific styling for About section background */
+.about.content-section {
+  /* Background image from Pexels with light overlay for text readability */
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  /* Ensure content is above the pseudo-element if an overlay were added that way */
+}
+.about.content-section > * { /* Direct children of .about like h2 and .about-content */
+    position: relative;
+    z-index: 2; /* If a ::before overlay was on .about */
+}
+
 
 .content-section h2 {
   font-size: 2.2rem; /* Adjusted for 768px breakpoint */
@@ -256,11 +283,18 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
 }
 
 /* Services Section */
-.services {
-  /* Inherits .content-section styles */
-  background-color: #ffffff;
-  color: #343a40;
+.services.content-section {
+  /* Background image from Pexels with light overlay */
+  background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: center;
+  color: #343a40; /* Ensure text color contrasts with potential image areas */
 }
+.services.content-section > * { /* Direct children of .services like h2 and ul */
+    position: relative;
+    z-index: 2; /* If a ::before overlay was on .services */
+}
+
 
 /* Services List - Card Layout */
 .services ul {
@@ -273,7 +307,7 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
 }
 
 .services ul li {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.92); /* Slightly translucent white for cards to let section bg subtly show */
   border-radius: 10px;
   padding: 25px; /* Reduced padding for mobile */
   flex: 1 1 280px; /* Adjust flex-basis for mobile, allow slightly narrower cards */
@@ -311,11 +345,12 @@ nav ul li a.active-link { /* Style for active link can be added if js is used to
 }
 
 
-/* Call to Action (CTA) Section - Revamped */
+/* Call to Action (CTA) Section - Revamped & Harmonized */
 .cta {
   text-align: center;
   padding: 80px 20px; /* Reduced padding for mobile */
-  background: linear-gradient(135deg, #3a6186, #89253e);
+  /* Adjusted gradient to harmonize with blue theme */
+  background: linear-gradient(135deg, #2c3e50, #4A90E2);
   color: #ffffff;
   position: relative;
 }
