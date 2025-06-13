@@ -3,77 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Our Services | Aayush-Tech07</title>
   <link rel="icon" href="assets/images/techno.jpg">
   <link rel="stylesheet" href="assets/styles/service.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @media (max-width: 768px) {
-  /* Styles for tablets and smaller devices */
-}
-@media (max-width: 480px) {
-  /* Styles for mobile phones */
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-    /* Default - hide toggle button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Default - nav visible */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-/* Responsive for mobile and small screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide nav links */
-    flex-direction: column;
-    background-color: #4c9437;
-    position: absolute;
-    top: 60px; /* adjust based on your header height */
-    right: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .menu-toggle {
-    display: block; /* show the toggle button */
-  }
-
-  nav ul.active {
-    display: flex; /* show nav when active */
-  }
-}
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e0e0e0;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px #0ea5e933;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #38bdf8;
+      background: #fff;
+    }
+    .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active-link {
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #38bdf866;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .services-section {
+      padding: 60px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .service-card {
+      background: #1e293b;
+      border-radius: 18px;
+      padding: 36px 28px;
+      box-shadow: 0 2px 16px #38bdf822;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px #38bdf844;
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #38bdf8;
+      margin-bottom: 18px;
+    }
+    .service-card h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .service-card p {
+      color: #94a3b8;
+      font-size: 1.08rem;
+      margin-bottom: 0;
+    }
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer .footer-content h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 8px;
+    }
+    .footer .tagline {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer .socials a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .footer .socials a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer-bottom-text {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .services-section {
+        padding: 48px 16px;
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 14px 16px;
+      }
+    }
+    @media (max-width: 600px) {
+      .services-section {
+        padding: 32px 6px;
+      }
+      nav ul {
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <div class="logo">
-      <h1>Aayush Tech</h1>
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+      <span class="brand">Aayush Tech</span>
     </div>
-    <button class="menu-toggle" aria-label="Toggle Menu">
-      <i class="fas fa-bars"></i>
-    </button>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active-link">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="members.html">Membership</a></li>
@@ -81,36 +195,38 @@ nav ul {
         <li><a href="petition.html">Petition</a></li>
       </ul>
     </nav>
+    <a href="contact.html" class="cta-btn">Let's Talk</a>
   </header>
 
 <!-- Services Section -->
 <section class="services-section">
   <div class="service-card">
+    <i class="fas fa-code"></i>
     <h2>Custom Web Development</h2>
     <p>We build stunning, responsive websites that drive success and represent your brand's true identity.</p>
   </div>
-
   <div class="service-card">
+    <i class="fas fa-laptop-code"></i>
     <h2>Software Solutions</h2>
     <p>From apps to enterprise systems, our solutions are engineered for excellence and long-term performance.</p>
   </div>
-
   <div class="service-card">
+    <i class="fas fa-user-tie"></i>
     <h2>IT Consultation</h2>
     <p>Expert advice to guide your business in the right direction through the digital world.</p>
   </div>
-
   <div class="service-card">
+    <i class="fas fa-headset"></i>
     <h2>Tech Support & Maintenance</h2>
     <p>Round-the-clock support and maintenance services to keep your operations smooth and secure.</p>
   </div>
-
   <div class="service-card">
+    <i class="fas fa-bullhorn"></i>
     <h2>Digital Marketing</h2>
     <p>Grow your online presence with smart strategies that connect you to your audience.</p>
   </div>
-
   <div class="service-card">
+    <i class="fas fa-link"></i>
     <h2>Blockchain Consulting</h2>
     <p>Secure your place in the future of finance with our trusted blockchain and crypto solutions.</p>
   </div>
@@ -119,18 +235,17 @@ nav ul {
 <footer class="footer">
   <div class="footer-content">
     <h3>Aayush-Tech07.website</h3>
-    <p>Empowering Your Digital Future</p>
+    <p class="tagline">Empowering Your Digital Future</p>
     <div class="socials">
       <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
       <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
+    <div class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</div>
   </div>
 </footer>
-
 
 </body>
 </html>

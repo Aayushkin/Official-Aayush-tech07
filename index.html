@@ -5,200 +5,550 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aayush Tech – Digital Solutions for the Future</title>
   <meta name="description" content="Aayush Tech: Modern web & software solutions. Digital, innovative, and future-ready.">
-  <meta name="keywords" content="Aayush Tech, Digital, Web Development, Software, IT, Modern, Nepal">
-  <meta name="author" content="Aayush Tech">
-  <link rel="icon" href="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=128&h=128" type="image/png">
+  <link rel="icon" href="assets/images/techno.jpg" type="image/jpeg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
-  <!-- Google Fonts for modern look -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Open Graph and Twitter Card data -->
-  <meta property="og:title" content="Aayush Tech – Digital Solutions for the Future">
-  <meta property="og:description" content="Aayush Tech: Modern web & software solutions. Digital, innovative, and future-ready.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=128&h=128">
-  <meta property="og:url" content="https://aayush-tech07.website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aayush Tech – Digital Solutions for the Future">
-  <meta name="twitter:description" content="Aayush Tech: Modern web & software solutions. Digital, innovative, and future-ready.">
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=128&h=128">
-  <!-- Canonical link -->
-  <link rel="canonical" href="https://aayush-tech07.website">
-  <!-- Structured data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Aayush Tech",
-    "url": "https://aayush-tech07.website",
-    "logo": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=128&h=128",
-    "sameAs": [
-      "https://www.facebook.com/people/Aayush-tech07/100091516755478/",
-      "https://x.com/aayush_tech07",
-      "https://www.instagram.com/aayushtech07/",
-      "https://www.linkedin.com/in/aayush-bhandari-432093353/",
-      "https://github.com/Aayushkin"
-    ]
-  }
-  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e0e0e0;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px #0ea5e933;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .navbar .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #38bdf8;
+      background: #fff;
+    }
+    .navbar .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .navbar nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+    .navbar nav ul li a:hover, .navbar nav ul li a.active-link {
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .navbar .cta-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #38bdf866;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .navbar .cta-btn:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      padding: 80px 48px 60px 48px;
+      min-height: 70vh;
+      position: relative;
+      background: url('assets/images/techno.jpg') right bottom/400px no-repeat;
+      background-blend-mode: lighten;
+    }
+    .hero-content {
+      max-width: 600px;
+    }
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      color: #38bdf8;
+      margin-bottom: 18px;
+      letter-spacing: 1.5px;
+      line-height: 1.1;
+    }
+    .hero-desc {
+      font-size: 1.25rem;
+      color: #94a3b8;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .hero .btn-main {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 24px 0 #38bdf866;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .hero .btn-main:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px 0 #38bdf888;
+    }
+    .hero-visual img {
+      width: 340px;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #38bdf822;
+      opacity: 0.95;
+    }
+    /* Section Headings */
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    /* About, Services, Projects, Contact */
+    .content-section {
+      padding: 60px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-content {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .about-img {
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #38bdf822;
+      width: 320px;
+      max-width: 100%;
+    }
+    .about-list {
+      margin: 24px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .about-list li {
+      margin-bottom: 12px;
+      font-size: 1.08rem;
+      color: #94a3b8;
+    }
+    .about-list i {
+      color: #38bdf8;
+      margin-right: 8px;
+    }
+    /* Services */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+      list-style: none;
+      padding: 0;
+    }
+    .services-list li {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 2px 16px #38bdf822;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .services-list li:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px #38bdf844;
+    }
+    .services-list i {
+      font-size: 2.2rem;
+      color: #38bdf8;
+      margin-bottom: 12px;
+    }
+    .services-list strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.15rem;
+      color: #fff;
+    }
+    .services-list span {
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .project-item {
+      background: #1e293b;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px #38bdf822;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px #38bdf844;
+    }
+    .project-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #222;
+    }
+    .project-info {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-info h3 {
+      margin: 0 0 8px 0;
+      color: #38bdf8;
+      font-size: 1.15rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .project-info p {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .btn {
+      background: none;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      border-radius: 20px;
+      padding: 7px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+    .btn:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+    /* Contact */
+    .contact-container {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .contact-form {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px #38bdf822;
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #e0e0e0;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-family: inherit;
+      resize: none;
+    }
+    .contact-form button {
+      margin-top: 8px;
+    }
+    .contact-info {
+      flex: 1;
+      min-width: 220px;
+      max-width: 340px;
+      padding: 0 12px;
+    }
+    .contact-info h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 12px;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+    .social-links a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .social-links a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    /* Footer */
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer .footer-content h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 8px;
+    }
+    .footer .tagline {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer .socials a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .footer .socials a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer-bottom-text {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero, .about-content, .contact-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        text-align: center;
+      }
+      .hero-visual img, .about-img {
+        margin: 0 auto;
+      }
+      .content-section {
+        padding: 48px 16px;
+      }
+      .navbar {
+        padding: 14px 16px;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero {
+        padding: 48px 8px 32px 8px;
+        background-size: 180px;
+      }
+      .content-section {
+        padding: 32px 6px;
+      }
+      .navbar nav ul {
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- SVG Digital Background Effect -->
-  <div class="digital-bg">
-    <svg width="100%" height="100%">
-      <defs>
-        <linearGradient id="digitalGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#00f2fe"/>
-          <stop offset="100%" stop-color="#4facfe"/>
-        </linearGradient>
-      </defs>
-      <circle cx="20%" cy="30%" r="180" fill="url(#digitalGradient)" opacity="0.18"/>
-      <circle cx="80%" cy="70%" r="120" fill="url(#digitalGradient)" opacity="0.12"/>
-      <rect x="60%" y="10%" width="300" height="300" rx="60" fill="url(#digitalGradient)" opacity="0.10"/>
-    </svg>
-  </div>
-  <!-- Header with animated nav -->
-  <header>
+  <!-- Navbar -->
+  <div class="navbar">
     <div class="logo">
-      <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=facearea&w=256&h=256" alt="Aayush Tech Logo" loading="lazy">
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+      <span class="brand">Aayush Tech</span>
     </div>
-    <h1 class="digital-title">Aayush Tech</h1>
-    <button class="menu-toggle" aria-label="Toggle Menu">
-      <i class="fas fa-bars"></i>
-    </button>
     <nav>
       <ul>
         <li><a href="#home" class="active-link">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="https://portfolio.aayush-tech07.website/">Portfolio</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="petition.html">Petition</a></li>
       </ul>
     </nav>
-  </header>
-  <main>
-    <!-- Hero Section with digital glitch effect -->
-    <section class="hero" id="home">
-      <div class="hero-content reveal-on-scroll">
-        <h2 class="glitch" data-text="Empowering Your Digital Future">Empowering Your Digital Future</h2>
-        <p>We build modern, scalable, and secure digital solutions for businesses and creators. Let’s shape tomorrow, today.</p>
-        <a href="#contact" class="btn-main">Get Started <i class="fas fa-arrow-right"></i></a>
+    <a href="#contact" class="cta-btn">Let's Talk</a>
+  </div>
+  <!-- Hero Section -->
+  <section class="hero" id="home" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+    <div class="hero-content">
+      <h1 class="hero-title">Empowering Your Digital Future</h1>
+      <div class="hero-desc">
+        We build modern, scalable, and secure digital solutions for businesses and creators.<br>
+        <strong>Let’s shape tomorrow, today.</strong>
       </div>
-      <div class="hero-visual">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Digital Tech Illustration" loading="lazy">
+      <a href="#contact" class="btn-main">Get Started <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-visual">
+      <!-- Replace logo with a tech illustration or abstract SVG -->
+      <svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="160" r="140" stroke="#38bdf8" stroke-width="4" opacity="0.3"/>
+        <circle cx="160" cy="160" r="100" stroke="#38bdf8" stroke-width="2" opacity="0.2"/>
+        <rect x="60" y="60" width="200" height="200" rx="40" stroke="#38bdf8" stroke-width="2" opacity="0.15"/>
+        <path d="M80 160h160M160 80v160" stroke="#38bdf8" stroke-width="2" opacity="0.2"/>
+        <circle cx="160" cy="160" r="8" fill="#38bdf8"/>
+      </svg>
+    </div>
+  </section>
+  <!-- About Section -->
+  <section class="content-section" id="about">
+    <h2 class="section-title">About Aayush Tech</h2>
+    <div class="about-content">
+      <div>
+        <p>
+          <strong>Aayush Tech</strong> is a digital-first company specializing in web development, software engineering, and IT consulting. Our mission is to empower businesses with innovative technology and seamless digital experiences.
+        </p>
+        <ul class="about-list">
+          <li><i class="fas fa-check-circle"></i> Custom Web & App Development</li>
+          <li><i class="fas fa-check-circle"></i> Cloud & DevOps Solutions</li>
+          <li><i class="fas fa-check-circle"></i> 24/7 Tech Support</li>
+        </ul>
       </div>
-    </section>
-    <!-- About Section -->
-    <section class="about content-section reveal-on-scroll" id="about">
-      <h2>About Aayush Tech</h2>
-      <div class="about-content">
-        <div class="about-column">
-          <p>
-            <strong>Aayush Tech</strong> is a digital-first company specializing in web development, software engineering, and IT consulting. Our mission is to empower businesses with innovative technology and seamless digital experiences.
-          </p>
-          <ul class="about-list">
-            <li><i class="fas fa-check-circle"></i> Custom Web & App Development</li>
-            <li><i class="fas fa-check-circle"></i> Cloud & DevOps Solutions</li>
-            <li><i class="fas fa-check-circle"></i> 24/7 Tech Support</li>
-          </ul>
-        </div>
-        <div class="about-column">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Team at work" class="about-img" loading="lazy">
-        </div>
-      </div>
-    </section>
-    <!-- Services Section -->
-    <section class="services content-section reveal-on-scroll" id="services">
-      <h2>Our Services</h2>
-      <ul class="services-list">
-        <li>
-          <i class="fas fa-code"></i>
-          <strong>Web Development</strong>
-          <span>Modern, responsive, and blazing fast websites & apps.</span>
-        </li>
-        <li>
-          <i class="fas fa-cloud"></i>
-          <strong>Cloud Solutions</strong>
-          <span>Deploy, scale, and manage with the latest cloud tech.</span>
-        </li>
-        <li>
-          <i class="fas fa-shield-alt"></i>
-          <strong>Cybersecurity</strong>
-          <span>Protect your business with advanced security solutions.</span>
-        </li>
-        <li>
-          <i class="fas fa-robot"></i>
-          <strong>AI & Automation</strong>
-          <span>Boost productivity with smart automation and AI tools.</span>
-        </li>
-      </ul>
-    </section>
-    <!-- Projects Section -->
-    <section class="projects content-section reveal-on-scroll" id="projects">
-      <h2>Featured Projects</h2>
-      <div class="project-grid">
-        <div class="project-item">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Project 1">
-          <div class="project-info">
-            <h3>Smart Business Dashboard</h3>
-            <p>Analytics and automation for modern enterprises.</p>
-            <a href="#" class="btn">View Case Study</a>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Project 2">
-          <div class="project-info">
-            <h3>eCommerce Platform</h3>
-            <p>Scalable, secure, and conversion-optimized online store.</p>
-            <a href="#" class="btn">View Case Study</a>
-          </div>
-        </div>
-        <div class="project-item">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Project 3">
-          <div class="project-info">
-            <h3>AI Chatbot</h3>
-            <p>Conversational AI for customer engagement and support.</p>
-            <a href="#" class="btn">View Case Study</a>
-          </div>
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Team at work" class="about-img" loading="lazy">
+    </div>
+  </section>
+  <!-- Services Section -->
+  <section class="content-section" id="services">
+    <h2 class="section-title">Our Services</h2>
+    <ul class="services-list">
+      <li>
+        <i class="fas fa-code"></i>
+        <strong>Web Development</strong>
+        <span>Modern, responsive, and blazing fast websites & apps.</span>
+      </li>
+      <li>
+        <i class="fas fa-cloud"></i>
+        <strong>Cloud Solutions</strong>
+        <span>Deploy, scale, and manage with the latest cloud tech.</span>
+      </li>
+      <li>
+        <i class="fas fa-shield-alt"></i>
+        <strong>Cybersecurity</strong>
+        <span>Protect your business with advanced security solutions.</span>
+      </li>
+      <li>
+        <i class="fas fa-robot"></i>
+        <strong>AI & Automation</strong>
+        <span>Boost productivity with smart automation and AI tools.</span>
+      </li>
+    </ul>
+  </section>
+  <!-- Projects Section -->
+  <section class="content-section" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Project 1">
+        <div class="project-info">
+          <h3>Smart Business Dashboard</h3>
+          <p>Analytics and automation for modern enterprises.</p>
+          <a href="#" class="btn">View Case Study</a>
         </div>
       </div>
-    </section>
-    <!-- Call to Action Section -->
-    <section class="cta reveal-on-scroll">
-      <h3>Ready to start your digital journey?</h3>
-      <p>Contact us for a free consultation and let’s build something amazing together.</p>
-      <a href="#contact" class="btn-main">Contact Us</a>
-    </section>
-    <!-- Contact Section -->
-    <section class="contact content-section reveal-on-scroll" id="contact">
-      <h2>Contact Us</h2>
-      <div class="contact-container">
-        <form class="contact-form" autocomplete="off">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn-main">Send Message</button>
-        </form>
-        <div class="contact-info">
-          <h3>Let's Connect</h3>
-          <p><i class="fas fa-envelope"></i> info@aayush-tech07.website</p>
-          <p><i class="fas fa-phone"></i> +977-XXXXXXXXXX</p>
-          <div class="social-links">
-            <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
-          </div>
+      <div class="project-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASUAAACsCAMAAAAKcUrhAAABZVBMVEVZq+T1s1D///8ei8NLd74mwoH/zl9NTU3/k5M5XnXv7++rt7fJyspESE3Gx8dUquX6tlCjf06MuNosOULepE//zFc9RU1hja9WUU79t050dG0yXHYfV3dCQUG5vr70rj9fW1jqrFD4yo798uZlfZANLUG91+xMpuPHlUz+5bYAg7/+4q7/jY0BK0Hc3d30rDn+0M/l9+/OmU3++fMAvnc6bbp01Kn51KT748f3xYP3wHQ6lcr+2JG159Bss+b/y1D/qal4stb73bXP4/H/mZnx+P2IwOnm8fmkze3/rKt2uOj/xML/7+tukMj/0GkvZ7j/vLlcpNChuNxbg8N7m86vzeOLqNWfzPCz2PTX4vD/68D/2JT/9t4AT3r0qCexh0r/5eDN1umetNq3xuKesL84ODiGiYqYl5WImaOAf3//1YDntGtiZ2mvrKoAHkDV8+E+x45fzZyf38FeVEQAIUCN2rjCztcKJZINAAAWz0lEQVR4nO2djV/iSJPHoXXHucjaPu7j7ni3wqp76Vt0US+giCOoMYTB95cRUJ45kXt2n/Fmnhm9m/37rzqB0Ek6oRMUcdbffhYQIpLvVFVXV1eHSORZz3rW1yBMRYzbx/4oAypMSKRcLFWrcrVaKecJeSblFBhQUdY0TZXfUsm6hvRqOSQoMMeWvirQmBRVpJeOh5KWhta3gFo1QoKeJyDKVyhlpOlqtUgCv8GACpOKpk8AoSG7ksljGanlQKeJSaSqKVdHb3ZevtzZPFraQ2rxa+AEdoTUYychC9QEUiNE+M1IXkVLOwsLCy9NwaPdPe3pcyJ5XfNiZHIqoargWWJSRbsWIQvUmz09Lw56EEVKaMKHkcFpSNXyIphwXr966WBkgtpFlSeMCRNVX+8CiXKaQMXuZwmee8RjRDHtKPKTxYQjutqdEcV0jErdzhIgvfGARLWnPlFMOKK9FYIEWteq/meJy2iTgbTwcnPT5n0Le0/TmjDWSqKQQP6YcMRmSQtHCLRrsy2lqzkOooi4JRnyjcBEZ5FAuL46OrpCSyymHSQ0BgyWiCoWkzpOh8qeZ4kre3YgV5AQLCyhHdbnjvQnZ0ykpAWDNDR0jCJemIiDR+tHu88t7FWemDHhPFoPCGko+dZrnMLVKxuOXWTe213u5ab2xIyJ6N2SSR4mrcg3BtaUNkFL6A2920RL9JYxJo/fH1Dhoh4cEvgc3xhwsROVFpBLjCc+raSJoOMQkIaSapVnDEQ96pCA2e7OEtps2dLOzm6HErz4lGwJV/zGN5+X1rmnyTrcDp3vMnEJIjnjcldPyeWI5m1KyQmfkJVUS+7TxHkmDdik2aVihG3IBAAfPMGE9S4Z/CDJJyolj3WIJOZD3jG8yISLzAj3BijtIES5LVwhsKNN1HHHl2+eUGAi6oQXoxoNt9oEEJqQVd4Rmju1xKXOgA/OtgNR+spwwZ0ryJd22KRpRzgXwO3i+eOVzhGf0boKhOStoeSWTC0KbXGOeeuetJLqLkvJuGv9tOBImhaQCCW62FWuyKqq66pcLUYepXaOizWeM63LSN1abxOi4s3zOC5HZIbSEnLWKpWrYJQwyVd1pDea1+egk2YNaWoR9x0UkXm1gOOJ46Gttzqb6PCiV9I9TbFRulKclPYCUcK4oqHm2XAmkxmmgvvM6XUNqfk+cyK6xwi3frxuFycrSKquyRiuMnFpb89J6WpPPC5hUkK1sxYgRpnTJuX0cEw40txuZNiOprnyZtm1/FRyBSZcuWIoXTkpsT646V8WIEWttu9CZHIaPkFyHyM5zruqARPuaUVL7sLBlutEcZmdoCz5UfKdomCiamd8Rianhkj5/Z7ECd5BKK1znAYxlHadlHY7mfnCEicptT5XHjW9GRmczlDfslJccblREEpDnEFOtyYhOy5KL48YSop3uZIU0bk/JCq9X2kprvZGyT2VY8K3LdNuP2VNUXyCN6kgj4hkN6danwqeuOrKg1yU1HZfBWeQ41DKWy73xraSYtjPjgVuYcnTYXARnQpAopj6Y00ilJI1y5icJU0OJVo6WWhT4sii5FkSBs4+cduBqS9LVgKUtGTnsXOawqOEy+1ccmeJo522KXmaAdZ4MSnjTpzos6gf5XNc6h6XgFJpaItLaYiXPhN115q6uWVFdq/YTdRGxgno9Oz6pNk8Od8fdrI67ceSFS66SnAcShC2kyqPEi8ToIuW7CIKVwtXXlEJFzUHo7OGpulqo9ls1DSknwzbOGVO+hDBRbJKsKX15JDGo+TOKo03rTjnby5Iu57nRrQzG4VzTTvZHz48HD45OzzMnJ43kGyHqPej5OmaofAoIVnjetwEP3gS1Tk1cUA68vQTXKqxtpKpacZM7roBU+9aE/IDmnXvs5jO+rBk5a7ncim15Dg2KXvETqL7YVp4470yTGwIMg09YwQfhJpnZw2Erg3zQqc2kA8fwN2lShelifWtthzemfTq+MLYBxNYkqeT4AprSpl9ZPy0D5+icb6fyRwaP2aatvjeB2Nyr6C4c2+1JddwuK55zzFkxZlStiEt+XTT2aISxCQTR2a/adS6tIZpaPuazSu91k/vT9hV0Q0wQ5nwSX1hlrHkbKs0vE1RvWsekFB2zh9iUtPEcXoKdnR63oTPsG+OazZKJ71l4MYWCeK/RYLoW2EpJX2HFxxR0e6OjRNtPtX8Ch642qkEZBo1iECGMZ0gpF+fnQEl7dSoBtgoDZ96m3R3QoTki5UqqFLMe9fUXS4nTsnH4Yx3pq3MV0c7Vj75ZknR/RuZid5xOBqTICDpdFzbb6owyNYa5zSrBFiNQ5ZShrOWI8aI5CuqptQvfpmfv7ioK5pc9Or8x46GE2FKSblbgQeTCP0Ue1dLS1dXCtKr3erVhHG4azCjDAxrqHZ9mjk8PK2dHELWRA2KxnIbpQZ3Lb47o6KqXFy+mCxMGipMHszXvTr/ibN4sjXhIedc17uFif0oGCy6VAJ7jnRdTsNlJixf08cZc6at1WB+ctJstNYrzk7tOdN1iMAEjPS51wDnBaPJwot5BTjxfiF495JhSpzVOP7naUngyAozxF8bMSlz7TLpxmnGkTPtB88FIGoqNwUbojaoS4VXU8elgO2CptZR0E/W/aMzwduKSZnzmg1S04hJtpwpePiGEXiex8jgNHmhccwpVGtOsnb/ZWeiXjPRpmbEpGGISYdGTeCkaUyTTttkmHEu6D8YZHMHHoyoCq85Le24jAIbU3LiATJeG6XhYTYmncgti2oNgplrhlImICWi1l/4QAJzOlDcNkDkwD63DvPVexdRz21j14lrTbDRsiTImeyUgrgcQPJlRDG94GHSg/TEU2n//cMDqGazJciTtAaDqNZslcPpqiVqhLUlIneFROVu3Id5inMm66ukHp9+df+aHrNTGr6uHQ6fGqAgaRo+zBiCnInaGJMKBKKEK4oIpMkDd+ECJlB+G+OckNTY30e6afrDT12Pcf7KR8dS5bmRM5n2pDVoeLJyJrY2fqoFgJRHfoGbwfTaPXJCBBe2JiFII7/99vv7oJR+d5S8z1s5kys+1WxLUUHyJaLPC0GCke7CnRACY9Gub31MANLIP96//306IKYP9mmsZ85kn8cNn4vn3rg4VxCDBOJUVHFEExnpksfoowgksKXffgsIaeTvyE7p0MiZzs2c6Zwuo5g5k62kCxmm+DyOaDeCpgQ+N8+hT9s8uganZAm9F7SQ90EdDlwuZVsaAFcybUiv0Zh00qxprcHOvo6iC9cEcLHeNqVJH7UP4bYykCKS/Tq8addu7Pvvvn8wfecI3zDGnbjmcbXhfWd9SdSSICq9nmwH53lPXbaPmedOVXFERm89OSWP1bm1vz6o/sdWq6VjXGbYFpN0yJmctUrxkgDOK21TunHRZ9RGeeCxv4FWzuRjTnt3cmhLVWYT49EHVWLO5nKtMW54n8akZvP6DBC5apUBVuRw9cIyJT9K7WGwUPd4a0wicUl7a1zAow0omVzfUlF27aEZRaPjq7ZcAMa4VtegmU8aD5q2vJsGL/HYrd4EojQ5790Y8/PIh48ppMml4tbx8dZW8a2qKdnZqJ3ROF89Y3KstRlj3KmByAC178y74RifnjonJWQNcDe/+OjGOspzDRr//NPI9PT0h8v5i2y9Xs9erOaiCZcZ/SdfvWJKzMu2yNQa4yDvvoa8uxWhzu32JgwJl5lkSWCMg4M835xSAn07NZUwxbWQf/47R79OT/VIKZpQbMlQhjPG2fLuIEu7TB4gSKng2dZoUfI9m1+/4+lVz5TGZ+3DfCZz7RzjbC+fB5id4NKFBeDg9SX8Z8j2gD68PLAoeYXvR6YUTdSd3bmOMc6mQP1LpGrN4cSi94vJupelPjKl6LjCaRjMWIOc/WktyOUbWEq++VLnsIuBpZRzzNO8lWkEWmP6mihFE7PaaXdCFFIzWCMcrv4SkFKvcemfv/LU+xhnYFrVRFqZMw0tUL2bjd7ClLwm0mKUHlSJWYFm5kxND7hjh60IUEqKKTshxUZJ8ey3fnxK0UQOnXTZh7KvyUF3yeH8HGtLlwVTL1hIrwuvGUovPGc/g0ApOh6t635eB7O5EHuaiPaCodRJihhLKoD9dOZxr7270oUoTd2bPP7A4ipqDntwglxSDxaSWpRUq3Rk2FIr02Zt6bJwycx2f/GsgopR+vCv96QPnv8OM3Ek73P2Wg5fa1qwK2dap1ZpByYjq+walwqKZxVUjNKP/3ZP+tHzT8x8N/JR0U9OO+kkfXTeQF16xfxkFQVEqnCT3iUBUUr/ck/yofT9yPT0+5ik1WBusr+/f3Z+0tA1vdTD3maizgeo6BYuvIsyg0RpZGT61Q/5YlXVdU3TVblU7t4r5iempCtQEzjwWTMeLEojP/2A7/G6zh1j6q7ChU/z0eBR6pGM7eTyqDseaxj0a0H+minBjLcuuLhbmPOr733dlCCzvBTyucKFb73hK6cEPieyCD556T+V/sopRUjFt6myBenG54qcfwZKIpi6Qvr6KdE+5hvfEA5zuW4NGmKU/vbjPelv/adE20bmvTHRhu+uaw5ilGbuTY9AiW4dqB94cCrccDcPhKLUBwlSEt7AYfsl8LqLA/f2gcnCTV0TqVw9JUp0+1+5WKkU6ea2YJNg+vUR9Rvbdp3JwuTrulYRep9glBLj0alENDoO/yfM32DWy3lL50bHgXF4t56CbpToxrKahpY/USGkywG/lobgkq7ULw8gEBUKQOuGbvwSYyRGaXzNKFglxnNzcL89lVhV4MfVRHQGoWwiOrWK0NoiPLUYjebg9cVtenh2kR6szE5FE2uK8cAo5oSkRLduoY2Vz+m2bu+WkRysqkI5yzpS5ur1OYViFv/6IEFKc9vZ7QSFklW2E6v0HqFV+gRKRBNzlBLc5KKJbZNSfTs7C8/Qo2YoY3iwNqWg7Ww2FCVgpC2vpNPfMEqnP98FvWKcsWU3Xy6X83kcyBIFKWXfLSYSWSAAjpZQUC6RAKsBW6qjtfEZlKWU5tB2IkFvgdLsu8UpgBd9l0WU1toi+FxUUd4tLoahRMr6p1sbohaob+5CXDEuVPgXtaXtWXAq48ccOB9t90O5GbQNnrUKt5RSVlnMoVWDUnY7m4MD1sDXclGkmG8OtrS97RmevCmREvrCYWRy+iT2vTaiNKzalt3SxONS9p2CpkxKcxYlcKV3c9lVSkmZRbltlGvHpVkjLhluSQ83KIE8/44XJUxqy994QKKcVu7vwnrWd5YhTa3aLicq6nHjJpdxOpTRYET9bgYoARo0a1JKoNW5rElpNmocDlHeONz4LfA4n7/hRQlj/ZM3I4rp9n6+5Ih+Z5mOpNRYfHR0NB5LSUjvjIBB4tI2mosu5nI0LBs/gJlkE0hB44bHKe9g5FjLteNSgsYlMLvFRB2OWlzLjYeKS0Tf8IUE+nwfmGhbt0QBdRSTUJtToEzA8JntRM5c1MrRuP1uDtUXTUoQoCgXJhOYAZbbNM5TD0yEyQRIzd+SWph6vaoHvfJqatSluNTa0yuUVeayoG0Y81fhboa2IGezq9SJsquJ2ews/J9LbGcTM3BMzvgRNAvPgNvB2D8eNQ6P0mcDZgKkutwdEnW6MGu/DKSILrkZGfZkfjmcWO5t9KVSqzLv6L3xC5BRjxv/00PMfNz4kXaxGlm68TQ8Ml5pvYk4JVxG3RlRTHc9XeML/gzHkFqS6JVaBnoeR7QV05Rotu2LabmHyzIBpJgnJMCkQ3o1wJRwpR2U7jbuNj77h6bw14iJ+EIaHU3VSFBKM6H25YSkpN22GYB8I1T6k/ieAiclzR8SWJNMglEa/6//4zXI++vX/xXYZOCm1DGlb25vVxC69TemkJGJqPbAPZYCxew5ASoOLiWir7CRB/nmBOlP4SITLiKbdyFJ0jQEOSUbz+MooMf99T9CSGTDiosSziMGS/quizF9qYUyJsL6WwoiVByNSmMSfTzG+Fx8JFj0ZnY0dUMTaPOTm1LJlnXfIjAmjiyMoVwOFxl/k6j9gGlJoyn6LGtOKPQYN+PvfAG7wV2USG3FZiw0gLt118aU/hQmASd6x5S0FGCSYpQSmNOoJEkdTNLH6bCUuDudrGDUKyWs2cb+9CduI5tlb+m7ENf4Aq+2WRLEo7hBKYYMXBbCuBSWUrT34d+HEqQx9tokBKYVh2yxKkxgwlXLXGKG66VSYEIQwVPmzLfDEH0YyKwSlx1jGiRNjjpTegVpnWc+h5ilEN0K0WZ8Qobd0ISgBc3mcgNIqeKglAZbsg9r4IRsgA8Tvi1jMamYBiV1zMh6PRYbUEqOwpKDiRnQmeQgxCDHhKVUrHNrojJcTmrbmhGYngKlL85JCuTj6d4odfIA80ELDYOt43KDGZecHmcEJhu2DXs6HoJSyaKEWFaGi6VG2zHKPGAwKRWdlNKaYy3FEahCXKGxZJkKjGvm6GbdtmQd8FNXSuMJnqKtyhr/Jf5r4pTyyElpw55939ptayX4GMdSilNJ9GbMuE2l6G2sQ+lVN0rjs3M8JaKJbe4Lc3O5aDTHe957GcWdVbrqlBCHNhjZ57/pL8G/BwRXnHGpc2tGpFgHY1ePo50AbilAKeuxt2NtPJrjviBOiejO2a0r/f5sezF4UYCN3nF+9G5n3wJj3ONQku+cpZL0CmtLd/bXQqwQ4E6+ZJqOecvkS9bi01hqMCnhoqs6mb7d+NKOSisb9lB+G+bCo1izym2oM6R1bjpDXCo+mJSc010zMLUzyy/wkLW19EaYC1oT1ZrPmr6FaChC8LhlVZ0JzPsBpeRyOTMumQ+Xkb0Sng71tTtseckwphSSYMIba9UqY8yr3etLj2RLeccoB6lAG43xkBni0iFLlbgz64+h0TGU0kxni6VSaCzeeTEV6145eRxKXGNabg98y2jZFrvDNegQuVNp+wNJpvlIpmEhpiKO3g+qLVFjckQmtoLLrmOm70J+swVbhhuN0Ro4BCRplNbiUkytN5YSqHs/EqUIqQr0UlB9Dv1lYERmF5ogcMellCSl4inbIgr6x6vBpQSZpVcXnN3EelgAxxqzVkItSIJPKUm2lcyULLLS9GiUIO1b6Y4p/amHLyl0LMjxFENCK+CPRol2OvD6Tu2QNsKNby2RquIPKY7KA06J/lN3wZTe6PGr94jqiymOimLdFI9IiVqTb2xKL9d6/TZ1X0xjtLtVrOckN8vTuNcLs7MzcNrcFwJTot+guOHZpJu+RffwxamkisY8IKUQ7RkU7MzxvKinz/U+g10I1LvfG2PZI4anv9m4nz5mUta4LYNxRTUqDYPc5cWchO7cYNFiJPfWUGmJ/ku4ugbHpPaWpydBqbVZ59bKt+mDlU90u869MKIikSrMdDt9S/GU0tkWZlHycJ2+qcvOL0zyVR192viycnt7u3K3sazVKuJ7kkSECS6qGl39NjJLvcpcz6hFaeQvj65vfSkZe0Qixapa03W9JpfK+F4RtUGRSLlSMb+zjH3/NqVvH10jXSgZoPB9XSjG72+49zy1KQ2IHmR3c+96puQEwtXP9PLeA6NXP/A/Zf8gyVz9Ee+PRoWOGvuD/yn7hgkrUg9K9fLLvb/Bw3/79zOloJTGPnyUpPfvJenjh2Af+09FaXTkdyk18kGSfhuJBzvJnvWEKEkxyUzBjQdPR08kLj2y+kfpsc+0B/VU2A5G6e3YU1Vson/5Uj72ZNUvRhTTxGOfbFgJf6/enxlTXyHRpdK3j33GgfXHRB/num1OOD/xpJTvPyOT05PSYyB61rOe9axnPetZz3rWsyKR/wctBd/p1Z2qOwAAAABJRU5ErkJggg==" alt="Project 2">
+        <div class="project-info">
+          <h3>eCommerce Platform</h3>
+          <p>Scalable, secure, and conversion-optimized online store.</p>
+          <a href="#" class="btn">View Case Study</a>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="project-item">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Project 3">
+        <div class="project-info">
+          <h3>AI Chatbot</h3>
+          <p>Conversational AI for customer engagement and support.</p>
+          <a href="#" class="btn">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call to Action Section -->
+  <section class="content-section" style="text-align:center;">
+    <h3 style="font-size:1.5rem;color:#38bdf8;font-family:'Orbitron',sans-serif;">Ready to start your digital journey?</h3>
+    <p>Contact us for a free consultation and let’s build something amazing together.</p>
+    <a href="#contact" class="btn-main">Contact Us</a>
+  </section>
+  <!-- Contact Section -->
+  <section class="content-section" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="contact-container">
+      <form class="contact-form" autocomplete="off">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-main">Send Message</button>
+      </form>
+      <div class="contact-info">
+        <h3>Let's Connect</h3>
+        <p><i class="fas fa-envelope"></i> info@aayush-tech07.website</p>
+        <p><i class="fas fa-phone"></i> +977-XXXXXXXXXX</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">

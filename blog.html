@@ -5,92 +5,188 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Our Blog | Aayush-Tech07</title>
-  <link rel="icon" href="/assets/images/techno.jpg">
-  <link rel="stylesheet" href="/assets/styles/blog.css">
+  <link rel="icon" href="assets/images/techno.jpg">
+  <link rel="stylesheet" href="assets/styles/blog.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @media (max-width: 768px) {
-  /* Styles for tablets and smaller devices */
-}
-@media (max-width: 480px) {
-  /* Styles for mobile phones */
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-    /* Default - hide toggle button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Default - nav visible */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-/* Responsive for mobile and small screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide nav links */
-    flex-direction: column;
-    background-color: #7db341;
-    position: absolute;
-    top: 60px; /* adjust based on your header height */
-    right: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .menu-toggle {
-    display: block; /* show the toggle button */
-  }
-
-  nav ul.active {
-    display: flex; /* show nav when active */
-  }
-}
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e0e0e0;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .header {
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px #0ea5e933;
+      padding: 32px 0 16px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active-link {
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .blog-container {
+      max-width: 900px;
+      margin: 48px auto 0 auto;
+      padding: 0 16px;
+    }
+    .blog-post {
+      background: #1e293b;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px #38bdf822;
+      padding: 32px 28px;
+      margin-bottom: 32px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-post:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 32px #38bdf844;
+    }
+    .post-title {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+    .post-meta {
+      color: #94a3b8;
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+    }
+    .post-content {
+      color: #e0e0e0;
+      font-size: 1.08rem;
+      margin-bottom: 18px;
+    }
+    .read-more {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 22px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 2px 12px #38bdf866;
+      display: inline-block;
+    }
+    .read-more:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer .footer-content h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 8px;
+    }
+    .footer .tagline {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer .socials a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .footer .socials a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer-bottom-text {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .blog-container {
+        margin: 32px auto 0 auto;
+      }
+      nav ul {
+        gap: 16px;
+      }
+    }
+    @media (max-width: 600px) {
+      .blog-container {
+        padding: 0 4px;
+      }
+      .header {
+        padding: 18px 0 8px 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header class="header">
   <h1>Aayush-Tech07 Blog</h1>
   <p>Latest updates, news, and tech insights</p>
-  <button class="menu-toggle" aria-label="Toggle Menu">
-    <i class="fas fa-bars"></i>
-  </button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="https://portfolio.Aayush-Tech07.website/">Portfolio</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="members.html">Membership</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="petition.html">Petition</a></li>
-        </ul>
-      </nav>
-    </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="blog.html" class="active-link">Blog</a></li>
+      <li><a href="members.html">Membership</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="petition.html">Petition</a></li>
+    </ul>
+  </nav>
 </header>
 
 <main class="blog-container">
-  
   <article class="blog-post">
     <h2 class="post-title">The Future of Technology in Nepal</h2>
     <p class="post-meta">Posted on April 12, 2025 | by Aayush-Tech07</p>
     <p class="post-content">
       Nepal is stepping into the new digital era. With increasing startups and tech enthusiasm, we believe the future will be dominated by blockchain, AI, and web development. Here’s how we plan to lead this change...
     </p>
-    <a href="https://1blog.aayush-tech07.website/" class="read-more">Read More</a>
+    <a href="https://1blog.aayush-tech07.website/" class="read-more" target="_blank">Read More</a>
   </article>
 
   <article class="blog-post">
@@ -99,7 +195,7 @@ nav ul {
     <p class="post-content">
       Staying ahead in web development requires adapting to new tools and practices. In 2025, expect more focus on performance, security, and decentralized apps. Let’s break down the key trends you should know...
     </p>
-    <a href="https://aayushkin.github.io/2blog/" class="read-more">Read More</a>
+    <a href="https://aayushkin.github.io/2blog/" class="read-more" target="_blank">Read More</a>
   </article>
 
   <article class="blog-post">
@@ -110,22 +206,20 @@ nav ul {
     </p>
     <a href="#" class="read-more">Read More</a>
   </article>
-
 </main>
-
 
 <footer class="footer">
   <div class="footer-content">
     <h3>Aayush-Tech07.website</h3>
-    <p>Empowering Your Digital Future</p>
+    <p class="tagline">Empowering Your Digital Future</p>
     <div class="socials">
       <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
       <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
     </div>
-    <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
+    <div class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</div>
   </div>
 </footer>
 <script src="script.js"></script>

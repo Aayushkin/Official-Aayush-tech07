@@ -3,138 +3,320 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <link rel="icon" href="/assets/images/techno.jpg">
+  <link rel="icon" href="assets/images/techno.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sign the Petition | Aayush-Tech07</title>
-  <link rel="stylesheet" href="/assets/styles/petiton.css">
+  <link rel="stylesheet" href="assets/styles/petiton.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @media (max-width: 768px) {
-  /* Styles for tablets and smaller devices */
-}
-@media (max-width: 480px) {
-  /* Styles for mobile phones */
-}
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-    /* Default - hide toggle button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #333;
-  cursor: pointer;
-}
-
-/* Default - nav visible */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-/* Responsive for mobile and small screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* hide nav links */
-    flex-direction: column;
-    background-color: #6ec248;
-    position: absolute;
-    top: 60px; /* adjust based on your header height */
-    right: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  .menu-toggle {
-    display: block; /* show the toggle button */
-  }
-
-  nav ul.active {
-    display: flex; /* show nav when active */
-  }
-}
-</style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e0e0e0;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px #0ea5e933;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #38bdf8;
+      background: #fff;
+    }
+    .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active-link {
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #38bdf866;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .header {
+      text-align: center;
+      padding: 48px 0 24px 0;
+      background: none;
+    }
+    .header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .header p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+    }
+    .intro, .impact, .supporters {
+      max-width: 800px;
+      margin: 32px auto;
+      background: #1e293b;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #38bdf822;
+      padding: 32px 24px;
+    }
+    .intro h2, .impact h2, .supporters h2, .petition-form h2 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .petition-form {
+      max-width: 600px;
+      margin: 32px auto;
+      background: #1e293b;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px #38bdf822;
+      padding: 32px 24px;
+    }
+    .petition-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .form-group label {
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #e0e0e0;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-family: inherit;
+      resize: none;
+    }
+    .submit-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 24px 0 #38bdf866;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .submit-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px 0 #38bdf888;
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+    }
+    .supporters ul {
+      padding-left: 18px;
+      color: #e0e0e0;
+    }
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer .footer-content h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 8px;
+    }
+    .footer .tagline {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer .socials a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .footer .socials a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer-bottom-text {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 14px 16px;
+      }
+      .intro, .impact, .supporters, .petition-form {
+        padding: 24px 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .navbar nav ul {
+        gap: 16px;
+      }
+      .intro, .impact, .supporters, .petition-form {
+        padding: 16px 2px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="header">
-  <h1>Support Cryptocurrency Legalization in Nepal</h1>
-  <p>Your voice matters. Together, we can bring the change.</p>
-</header>
-
-<section class="intro">
-  <h2>Why This Matters</h2>
-  <p>
-    Cryptocurrency represents freedom, innovation, and a brighter financial future. Nepal's youth and entrepreneurs deserve access to the global economy. 
-    By signing this petition, you're supporting technological progress, financial independence, and opening doors for a new digital era.
-  </p>
-</section>
-
-<section class="petition-form">
-  <h2>Sign the Petition</h2>
-  <form action="#" method="post">
-    <div class="form-group">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" required>
+  <div class="navbar">
+    <div class="logo">
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+      <span class="brand">Aayush Tech</span>
     </div>
-
-    <div class="form-group">
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="city">City</label>
-      <input type="text" id="city" name="city">
-    </div>
-
-    <div class="form-group">
-      <label for="comment">Why do you support this cause?</label>
-      <textarea id="comment" name="comment" rows="5" placeholder="Share your thoughts..."></textarea>
-    </div>
-
-    <button type="submit" class="submit-btn">Sign Now</button>
-  </form>
-</section>
-
-<section class="impact">
-  <h2>Our Goal</h2>
-  <p>
-    We aim to gather 100,000+ signatures and present this collective voice to the Government of Nepal. Every signature is a step toward a future where 
-    technology is embraced, not banned.
-  </p>
-</section>
-
-<section class="supporters">
-  <h2>Recent Supporters</h2>
-  <ul>
-    <li>Ayush K. from Kathmandu</li>
-    <li>Sandesh R. from Pokhara</li>
-    <li>Prerana M. from Biratnagar</li>
-    <li>...and many more!</li>
-  </ul>
-</section>
-
-
-<footer class="footer">
-  <div class="footer-content">
-    <h3>Aayush-Tech07.website</h3>
-    <p>Empowering Your Digital Future</p>
-    <div class="socials">
-      <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
-    <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="members.html">Membership</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="petition.html" class="active-link">Petition</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="cta-btn">Let's Talk</a>
   </div>
-</footer>
+
+  <header class="header">
+    <h1>Support Cryptocurrency Legalization in Nepal</h1>
+    <p>Your voice matters. Together, we can bring the change.</p>
+  </header>
+
+  <section class="intro">
+    <h2>Why This Matters</h2>
+    <p>
+      Cryptocurrency represents freedom, innovation, and a brighter financial future. Nepal's youth and entrepreneurs deserve access to the global economy. 
+      By signing this petition, you're supporting technological progress, financial independence, and opening doors for a new digital era.
+    </p>
+  </section>
+
+  <section class="petition-form">
+    <h2>Sign the Petition</h2>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city">
+      </div>
+
+      <div class="form-group">
+        <label for="comment">Why do you support this cause?</label>
+        <textarea id="comment" name="comment" rows="5" placeholder="Share your thoughts..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Sign Now</button>
+    </form>
+  </section>
+
+  <section class="impact">
+    <h2>Our Goal</h2>
+    <p>
+      We aim to gather 100,000+ signatures and present this collective voice to the Government of Nepal. Every signature is a step toward a future where 
+      technology is embraced, not banned.
+    </p>
+  </section>
+
+  <section class="supporters">
+    <h2>Recent Supporters</h2>
+    <ul>
+      <li>Ayush K. from Kathmandu</li>
+      <li>Sandesh R. from Pokhara</li>
+      <li>Prerana M. from Biratnagar</li>
+      <li>...and many more!</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>Aayush-Tech07.website</h3>
+      <p>Empowering Your Digital Future</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
+    </div>
+  </footer>
 
 
 </body>

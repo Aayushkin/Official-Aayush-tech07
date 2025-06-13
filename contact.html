@@ -1,103 +1,274 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>Contact | Aayush Tech</title>
+  <link rel="icon" href="assets/images/techno.jpg">
+  <meta name="description" content="Contact Aayush Tech for digital solutions, web development, and IT consulting.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <link rel="icon" href="/assets/images/techno.jpg">
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <style>
-      @media (max-width: 768px) {
-    /* Styles for tablets and smaller devices */
-  }
-  @media (max-width: 480px) {
-    /* Styles for mobile phones */
-  }
-  img, video {
-    max-width: 100%;
-    height: auto;
-  }
-      /* Default - hide toggle button */
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  /* Default - nav visible */
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-  }
-  
-  /* Responsive for mobile and small screens */
-  @media (max-width: 768px) {
+  <link rel="stylesheet" href="assets/styles/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e0e0e0;
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 16px #0ea5e933;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #38bdf8;
+      background: #fff;
+    }
+    .brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      color: #38bdf8;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
     nav ul {
-      display: none; /* hide nav links */
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active-link {
+      color: #38bdf8;
+      border-bottom: 2px solid #38bdf8;
+    }
+    .cta-btn {
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 2px 12px #38bdf866;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .contact-section {
+      padding: 60px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #38bdf8;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .contact-section p {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 32px;
+    }
+    .contact-container {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .contact-form {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px #38bdf822;
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+      display: flex;
       flex-direction: column;
-      background-color: #88b950;
-      position: absolute;
-      top: 60px; /* adjust based on your header height */
-      right: 20px;
-      padding: 10px;
+      gap: 18px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #e0e0e0;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-family: inherit;
+      resize: none;
     }
-  
-    .menu-toggle {
-      display: block; /* show the toggle button */
+    .contact-form button {
+      margin-top: 8px;
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 24px 0 #38bdf866;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
     }
-  
-    nav ul.active {
-      display: flex; /* show nav when active */
+    .contact-form button:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 32px 0 #38bdf888;
+      background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
     }
-  }
+    .contact-info {
+      flex: 1;
+      min-width: 220px;
+      max-width: 340px;
+      padding: 0 12px;
+    }
+    .contact-info h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 12px;
+    }
+    .contact-info p {
+      margin: 8px 0;
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+    .social-links a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    .footer .footer-content h3 {
+      color: #38bdf8;
+      font-family: 'Orbitron', sans-serif;
+      margin-bottom: 8px;
+    }
+    .footer .tagline {
+      color: #94a3b8;
+      margin-bottom: 18px;
+    }
+    .footer .socials a {
+      color: #38bdf8;
+      margin: 0 8px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .footer .socials a:hover {
+      color: #0ea5e9;
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .footer-bottom-text {
+      margin-top: 18px;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .contact-section {
+        padding: 48px 16px;
+      }
+      .contact-container {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+      }
+      .navbar {
+        padding: 14px 16px;
+      }
+    }
+    @media (max-width: 600px) {
+      .contact-section {
+        padding: 32px 6px;
+      }
+      nav ul {
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
+  <!-- Navbar -->
+  <div class="navbar">
     <div class="logo">
-      <h1>Aayush Tech</h1>
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+      <span class="brand">Aayush Tech</span>
     </div>
-    <button class="menu-toggle" aria-label="Toggle Menu">
-      <i class="fas fa-bars"></i>
-    </button>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="members.html">Membership</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active-link">Contact</a></li>
         <li><a href="petition.html">Petition</a></li>
       </ul>
     </nav>
-  </header>
-<section class="contact" id="contact">
+    <a href="contact.html" class="cta-btn">Let's Talk</a>
+  </div>
+  <section class="contact-section" id="contact">
     <h2>Contact Us</h2>
     <p>Feel free to reach out to us for any inquiries, projects, or collaborations. We would love to hear from you!</p>
-  
     <div class="contact-container">
       <form action="https://formspree.io/f/xblyjopd" method="POST" class="contact-form">
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-          <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
-  
       <div class="contact-info">
         <h3>Our Office</h3>
         <p><strong>Address:</strong> Kathmandu, Nepal</p>
@@ -105,21 +276,22 @@
         <p><strong>Phone:</strong> +977-9876543210</p>
         <h3>Follow Us</h3>
         <div class="social-links">
-          <a href="#">Facebook</a> | 
-          <a href="#">Twitter</a> | 
-          <a href="#">LinkedIn</a>
+          <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
         </div>
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="footer-content">
       <h3>Aayush-Tech07.website</h3>
       <p>Empowering Your Digital Future</p>
       <div class="socials">
         <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
         <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>

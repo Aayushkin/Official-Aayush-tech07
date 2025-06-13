@@ -3,270 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team</title>
+    <title>Our Team | Aayush Tech</title>
     <link rel="icon" href="assets/images/techno.jpg">
-    <!-- SEO Meta -->
-  <meta name="description" content="Aayush Tech provides innovative tech solutions, including web development, software design, IT consultation, and tech support. Empowering your digital future.">
-  <meta name="keywords" content="Aayush Tech, Web Development, Software Development, IT Consultation, Tech Support, Custom Tech Solutions, Nepal Tech Company, Digital Transformation">
-  <meta name="author" content="Aayush Tech">
-
-  <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="Aayush Tech - Custom Tech & Web Solutions">
-  <meta property="og:description" content="Empowering your business with innovative technology. Explore our custom web and software solutions.">
-  <meta property="og:image" content="https://aayush-tech07.website/assets/images/techno.jpg">
-  <meta property="og:url" content="https://aayush-tech07.website">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Aayush Tech - Innovative Digital Solutions">
-  <meta name="twitter:description" content="Discover top-tier tech services with Aayush Tech. We help businesses grow through smart solutions.">
-  <meta name="twitter:image" content="https://aayush-tech07.website/assets/images/techno.jpg">
-
-  <link rel="canonical" href="https://aayush-tech07.website/">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles/style.css">
-  <link rel="icon" href="assets/images/techno.jpg">
-
-  <!-- Structured Data (JSON-LD Schema) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Aayush Tech",
-    "url": "https://aayush-tech07.website",
-    "logo": "https://aayush-tech07.website/assets/images/techno.jpg",
-    "sameAs": [
-      "https://www.facebook.com/people/Aayush-tech07/100091516755478/",
-      "https://x.com/aayush_tech07",
-      "https://www.instagram.com/aayushtech07/",
-      "https://www.linkedin.com/in/aayush-bhandari-432093353/",
-      "https://github.com/Aayushkin"
-    ],
-    "description": "Aayush Tech provides custom technology solutions, including web development, IT consulting, and 24/7 tech support.",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+977-XXXXXXXXXX",
-      "contactType": "Customer Service"
-    }
-  }
-  </script>
+    <meta name="description" content="Meet the Aayush Tech team: innovative, skilled, and dedicated to empowering your digital future.">
+    <meta name="keywords" content="Aayush Tech, Team, Members, Developers, Nepal, Tech Company">
+    <meta name="author" content="Aayush Tech">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(15,23,42,0.85);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 16px #0ea5e933;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #38bdf8;
+            background: #fff;
+        }
+        .brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #38bdf8;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
             margin: 0;
             padding: 0;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border 0.2s;
         }
-
+        nav ul li a:hover, nav ul li a.active-link {
+            color: #38bdf8;
+            border-bottom: 2px solid #38bdf8;
+        }
+        .cta-btn {
+            background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 28px;
+            font-size: 1rem;
+            font-weight: 700;
+            box-shadow: 0 2px 12px #38bdf866;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+        .cta-btn:hover {
+            background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto 0 auto;
+            padding: 24px;
+            background: #1e293b;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px #38bdf822;
+        }
         h2 {
             text-align: center;
-            margin-top: 40px;
-            color: #333;
+            margin-top: 24px;
+            color: #38bdf8;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
-
         /* Founder Section */
         .founder {
             display: flex;
             align-items: center;
-            background-image: url(assets/images/gold.avif);
-            padding: 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            color: white;
+            background: linear-gradient(90deg, #00eaff 0%, #00b7ff 100%);
+            padding: 24px;
+            margin-bottom: 36px;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px #00eaff33;
+            color: #fff;
         }
-
         .founder-avatar {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 24px;
             border: 4px solid #fff;
+            object-fit: cover;
         }
-
         .founder-info h1 {
             margin: 0;
-            font-size: 24px;
-            color: white;
+            font-size: 1.5rem;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
         }
-
         .founder-info p {
-            font-size: 16px;
-            color: white;
+            font-size: 1.05rem;
+            color: #e0e0e0;
         }
-
-        /* Member (Branch) Section */
-        .branch {
-            margin-bottom: 20px;
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .member-card {
+            background: #222c3a;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px #38bdf822;
+            padding: 24px 18px;
             text-align: center;
-        }
-
-        .member {
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            background-color: #e0f7f1;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 10px;
         }
-
+        .member-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px #38bdf844;
+        }
         .member-avatar {
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-bottom: 14px;
+            border: 3px solid #38bdf8;
+            object-fit: cover;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
         }
-
+        .member-card.special {
+            background: linear-gradient(90deg, #00eaff 0%, #00b7ff 100%);
+            color: #fff;
+            box-shadow: 0 4px 16px #00eaff33;
+        }
+        .member-card.special .member-avatar {
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 4px #00eaff;
+        }
         .member-info h3 {
-            margin: 0;
-            color: #333;
+            margin: 0 0 6px 0;
+            color: #38bdf8;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.15rem;
         }
-
+        .member-card.special .member-info h3,
+        .member-card.special .member-info p {
+            color: #fff;
+        }
         .member-info p {
-            color: #555;
-            margin: 5px 0;
-        }
-
-        .member-info p:first-child {
-            font-weight: bold;
+            color: #94a3b8;
+            margin: 2px 0;
+            font-size: 1rem;
         }
         .membership-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #1877f2; /* Facebook blue */
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  font-family: sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease;
-  z-index: 9999;
-}
-
-.membership-btn:hover {
-  background-color: #0e63c1;
-}
-
-/* --- Modal Styles for Member Photo Fullscreen --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10000;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(20, 20, 30, 0.95);
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.25s;
-    opacity: 0;
-    pointer-events: none;
-}
-.modal.active {
-    display: flex;
-    opacity: 1;
-    pointer-events: auto;
-}
-.modal-content {
-    background: transparent;
-    border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.45);
-    padding: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 96vw;
-    max-height: 96vh;
-}
-.modal-content img {
-    max-width: 80vw;
-    max-height: 80vh;
-    width: auto;
-    height: auto;
-    border-radius: 14px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.25);
-    background: #fff;
-    object-fit: contain;
-    transition: box-shadow 0.2s;
-}
-.modal-close {
-    position: absolute;
-    top: -18px;
-    right: -18px;
-    font-size: 2.5rem;
-    color: #fff;
-    background: #222b;
-    border: none;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.2s;
-}
-.modal-close:hover {
-    background: #e74c3c;
-    color: #fff;
-}
-#modalCaption {
-    color: #fff;
-    font-size: 1.15em;
-    margin-top: 18px;
-    text-align: center;
-    text-shadow: 0 2px 8px #000a;
-    max-width: 80vw;
-    word-break: break-word;
-}
-@media (max-width: 600px) {
-    .modal-content img {
-        max-width: 98vw;
-        max-height: 60vh;
-    }
-    #modalCaption {
-        font-size: 1em;
-        max-width: 95vw;
-    }
-    .modal-content {
-        max-width: 99vw;
-        max-height: 99vh;
-    }
-}
-#ha {
-    background: linear-gradient(90deg, #00eaff 0%, #00b7ff 100%);
-    color: #fff !important;
-    box-shadow: 0 4px 16px rgba(0, 186, 255, 0.18);
-    border: 2px solid #00eaff;
-}
-#ha .member-info h3,
-#ha .member-info p {
-    color: #fff !important;
-}
-#ha .member-avatar {
-    border: 3px solid #fff;
-    box-shadow: 0 0 0 4px #00eaff;
-}
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1877f2;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: sans-serif;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease;
+            z-index: 9999;
+        }
+        .membership-btn:hover {
+            background-color: #0e63c1;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(20, 20, 30, 0.95);
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.25s;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content {
+            background: transparent;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 96vw;
+            max-height: 96vh;
+        }
+        .modal-content img {
+            max-width: 80vw;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+            background: #fff;
+            object-fit: contain;
+            transition: box-shadow 0.2s;
+        }
+        .modal-close {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            font-size: 2.5rem;
+            color: #fff;
+            background: #222b;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.2s;
+        }
+        .modal-close:hover {
+            background: #e74c3c;
+            color: #fff;
+        }
+        #modalCaption {
+            color: #fff;
+            font-size: 1.15em;
+            margin-top: 18px;
+            text-align: center;
+            text-shadow: 0 2px 8px #000a;
+            max-width: 80vw;
+            word-break: break-word;
+        }
+        @media (max-width: 900px) {
+            .container {
+                padding: 12px;
+            }
+            .navbar {
+                padding: 14px 16px;
+            }
+            .team-grid {
+                gap: 18px;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 4px;
+            }
+            .modal-content img {
+                max-width: 98vw;
+                max-height: 60vh;
+            }
+            #modalCaption {
+                font-size: 1em;
+                max-width: 95vw;
+            }
+            .modal-content {
+                max-width: 99vw;
+                max-height: 99vh;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+            <span class="brand">Aayush Tech</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="members.html" class="active-link">Membership</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="petition.html">Petition</a></li>
+            </ul>
+        </nav>
+        <a href="contact.html" class="cta-btn">Let's Talk</a>
+    </div>
     <div class="container">
         <!-- Founder Section -->
         <div class="founder">
@@ -277,217 +340,172 @@
                 <p>Role: Founder & CEO</p>
             </div>
         </div>
-
-        <!-- Member Section -->
-        <h2>Our Team Member</h2>   
-         <div class="branch">
-                        <div class="member" id="ha">
-                            <img src="assets/images/4member.jpg" alt="Member" class="member-avatar">
-                            <div class="member-info">
-                                <h3>Bipin Xettri</h3>
-                                <p>Email: Bipin.@aayush-tech07.website</p>
-                                <p>Role: Manager</p>
-                            </div>
-                        </div>
-                    </div>  
-         <div class="branch">
-                    <div class="member" id="ha">
-                        <img src="assets/images/11member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Ashal Gaire</h3>
-                            <p>Email: Ashal.@aayush-tech07.website</p>
-                            <p>Role: Partner</p>
-                        </div>
-                    </div>
-                  
-        </div>
-          <div class="branch">
-            <div class="member">
-                <img src="assets/images/1member.jpg" alt="Member" class="member-avatar">
+        <h2>Our Team Members</h2>
+        <div class="team-grid">
+            <div class="member-card special">
+                <img src="assets/images/4member.jpg" alt="Bipin Xettri" class="member-avatar">
+                <div class="member-info">
+                    <h3>Bipin Xettri</h3>
+                    <p>Email: Bipin.@aayush-tech07.website</p>
+                    <p>Role: Manager</p>
+                </div>
+            </div>
+            <div class="member-card special">
+                <img src="assets/images/11member.jpg" alt="Ashal Gaire" class="member-avatar">
+                <div class="member-info">
+                    <h3>Ashal Gaire</h3>
+                    <p>Email: Ashal.@aayush-tech07.website</p>
+                    <p>Role: Partner</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/1member.jpg" alt="Ravi Dube" class="member-avatar">
                 <div class="member-info">
                     <h3>Ravi Dube</h3>
                     <p>Email: dube.@aayush-tech07.website</p>
                     <p>Role: Web Developer</p>
                 </div>
             </div>
+            <div class="member-card">
+                <img src="assets/images/2member.jpg" alt="Prasana Sapkota" class="member-avatar">
+                <div class="member-info">
+                    <h3>Prasana Sapkota</h3>
+                    <p>Email: Prasana.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
             </div>
-          
-            <div class="branch">
-                <div class="member">
-                    <img src="assets/images/2member.jpg" alt="Member" class="member-avatar">
-                    <div class="member-info">
-                        <h3>Prasana Sapkota</h3>
-                        <p>Email: Prasana.@aayush-tech07.website</p>
-                        <p>Role: Employ</p>
-                    </div>
+            <div class="member-card">
+                <img src="assets/images/3member.jpg" alt="Saurav Nepali" class="member-avatar">
+                <div class="member-info">
+                    <h3>Saurav Nepali</h3>
+                    <p>Email: Saurav.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
                 </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/5member.jpg" alt="Nishan Sherma" class="member-avatar">
+                <div class="member-info">
+                    <h3>Nishan Sherma</h3>
+                    <p>Email: Nishan.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
                 </div>
-                <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/3member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Saurav Nepali</h3>
-                            <p>Email: Saurav.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/5member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Nishan Sherma</h3>
-                            <p>Email: Nishan.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/6member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Irfan Khan</h3>
-                            <p>Email: Irfan.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-                        <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/7member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Amit Khanal</h3>
-                            <p>Email: Amit.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-                            <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/8member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Sandip Xettri</h3>
-                            <p>Email: Sandip.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/6member.jpg" alt="Irfan Khan" class="member-avatar">
+                <div class="member-info">
+                    <h3>Irfan Khan</h3>
+                    <p>Email: Irfan.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
                 </div>
-                                <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/9member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Aman Gupta</h3>
-                            <p>Email: Aman.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-         
-                                    <div class="branch">
-                    <div class="member">
-                        <img src="assets/images/10member.jpg" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Kushal Bhusal </h3>
-                            <p>Email: Kushal.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-                               <div class="branch">
-                    <div class="member">
-                        <img src="https://scontent.fmey1-1.fna.fbcdn.net/v/t39.30808-6/482248074_951586147145701_1547652866236716387_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=dCBFiW-2zbcQ7kNvwFWR7Ln&_nc_oc=AdnzrZG9XkyS0V3mriIjOY-jSzJaFfP2JTBzqmeLSFhNKRTJTvHfe97bcO0TPSnxS84&_nc_zt=23&_nc_ht=scontent.fmey1-1.fna&_nc_gid=XssiMzANcQYuNdjs_RqegQ&oh=00_AfIUGj8GC1csm0faxY49_TCvyaKUDDn2ZoSLjsL9gJGN8g&oe=68438AD4" alt="Member" class="member-avatar">
-                        <div class="member-info">
-                            <h3>Aniket Tiwari</h3>
-                            <p>Email: Aniket.@aayush-tech07.website</p>
-                            <p>Role: Employ</p>
-                        </div>
-                    </div>
-                    </div>
-          
-
+            </div>
+            <div class="member-card">
+                <img src="assets/images/7member.jpg" alt="Amit Khanal" class="member-avatar">
+                <div class="member-info">
+                    <h3>Amit Khanal</h3>
+                    <p>Email: Amit.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/8member.jpg" alt="Sandip Xettri" class="member-avatar">
+                <div class="member-info">
+                    <h3>Sandip Xettri</h3>
+                    <p>Email: Sandip.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/9member.jpg" alt="Aman Gupta" class="member-avatar">
+                <div class="member-info">
+                    <h3>Aman Gupta</h3>
+                    <p>Email: Aman.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="assets/images/10member.jpg" alt="Kushal Bhusal" class="member-avatar">
+                <div class="member-info">
+                    <h3>Kushal Bhusal</h3>
+                    <p>Email: Kushal.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <img src="https://scontent.fmey1-1.fna.fbcdn.net/v/t39.30808-6/482248074_951586147145701_1547652866236716387_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=dCBFiW-2zbcQ7kNvwFWR7Ln&_nc_oc=AdnzrZG9XkyS0V3mriIjOY-jSzJaFfP2JTBzqmeLSFhNKRTJTvHfe97bcO0TPSnxS84&_nc_zt=23&_nc_ht=scontent.fmey1-1.fna&_nc_gid=XssiMzANcQYuNdjs_RqegQ&oh=00_AfIUGj8GC1csm0faxY49_TCvyaKUDDn2ZoSLjsL9gJGN8g&oe=68438AD4" alt="Aniket Tiwari" class="member-avatar">
+                <div class="member-info">
+                    <h3>Aniket Tiwari</h3>
+                    <p>Email: Aniket.@aayush-tech07.website</p>
+                    <p>Role: Employ</p>
+                </div>
+            </div>
+        </div>
     </div>
-<!-- Place this just before </body> -->
-<div class="modal" id="photoModal">
-    <div class="modal-content">
-        <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
-        <img src="" alt="Member Fullscreen" id="modalImg">
-        <div id="modalCaption" style="color:#222;font-size:1.1em;text-align:center;"></div>
+    <!-- Modal for member photo -->
+    <div class="modal" id="photoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
+            <img src="" alt="Member Fullscreen" id="modalImg">
+            <div id="modalCaption"></div>
+        </div>
     </div>
-</div>
-<script>
-    // --- Best Toggle for Member Photo Modal with Scroll Fix and Clean UX ---
-const modal = document.getElementById('photoModal');
-const modalImg = document.getElementById('modalImg');
-const modalCaption = document.getElementById('modalCaption');
-let lastClickedImg = null;
-
-// Open or toggle modal on image click
-document.querySelectorAll('.member-avatar').forEach(img => {
-    img.style.cursor = "pointer";
-    img.addEventListener('click', function () {
-        // Toggle off if clicking the same image
-        if (modal.classList.contains('active') && lastClickedImg === this) {
-            closeModal();
-            return;
+    <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" class="membership-btn">Join Us</a>
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Aayush-Tech07.website</h3>
+            <p>Empowering Your Digital Future</p>
+            <div class="socials">
+                <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Member photo modal logic
+        const modal = document.getElementById('photoModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalCaption = document.getElementById('modalCaption');
+        let lastClickedImg = null;
+        document.querySelectorAll('.member-avatar').forEach(img => {
+            img.style.cursor = "pointer";
+            img.addEventListener('click', function () {
+                if (modal.classList.contains('active') && lastClickedImg === this) {
+                    closeModal();
+                    return;
+                }
+                modal.classList.add('active');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                lastClickedImg = this;
+                const info = this.closest('.member-card')?.querySelector('.member-info') || this.closest('.founder')?.querySelector('.founder-info');
+                const name = info?.querySelector('h3')?.textContent || info?.querySelector('h1')?.textContent || '';
+                const role = info?.querySelectorAll('p')[1]?.textContent || '';
+                modalCaption.innerHTML = `<strong>${name}</strong><br>${role}`;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeModal() {
+            modal.classList.remove('active');
+            lastClickedImg = null;
+            document.body.style.overflow = '';
         }
-        // Show modal with new image
-        modal.classList.add('active');
-        modalImg.src = this.src;
-        modalImg.alt = this.alt;
-        lastClickedImg = this;
-        // Get member name and role for caption
-        const info = this.closest('.member').querySelector('.member-info');
-        const name = info?.querySelector('h3')?.textContent || '';
-        const role = info?.querySelectorAll('p')[1]?.textContent || '';
-        modalCaption.innerHTML = `<strong>${name}</strong><br>${role}`;
-        // Prevent background scroll
-        document.body.style.overflow = 'hidden';
-    });
-});
-
-// Close modal helper
-function closeModal() {
-    modal.classList.remove('active');
-    lastClickedImg = null;
-    document.body.style.overflow = '';
-}
-// Close modal on close button
-document.getElementById('modalCloseBtn').onclick = closeModal;
-
-// Close modal on background click (not on image or caption)
-modal.addEventListener('click', function (e) {
-    if (e.target === modal) closeModal();
-});
-
-// Close modal on ESC key
-document.addEventListener('keydown', function (e) {
-    if (e.key === "Escape" && modal.classList.contains('active')) closeModal();
-});
-
-// Clean up modal image and caption after close for best UX
-modal.addEventListener('transitionend', function () {
-    if (!modal.classList.contains('active')) {
-        modalImg.src = '';
-        modalImg.alt = '';
-        modalCaption.innerHTML = '';
-    }
-});
-</script>
-    <!-- HTML -->
-<a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" class="membership-btn">Join Us</a>
-<footer class="footer">
-    <div class="footer-content">
-      <h3>Aayush-Tech07.website</h3>
-      <p>Empowering Your Digital Future</p>
-      <div class="socials">
-        <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://www.instagram.com/aayushtech07/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/aayush-bhandari-432093353/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/Aayushkin" target="_blank"><i class="fab fa-github"></i></a>
-      </div>
-      <p class="footer-bottom-text">© 2025 <a href="https://aayush-tech07.website" target="_blank">Aayush-Tech07.website</a>. All rights reserved.</p>
-    </div>
-  </footer>
+        document.getElementById('modalCloseBtn').onclick = closeModal;
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape" && modal.classList.contains('active')) closeModal();
+        });
+        modal.addEventListener('transitionend', function () {
+            if (!modal.classList.contains('active')) {
+                modalImg.src = '';
+                modalImg.alt = '';
+                modalCaption.innerHTML = '';
+            }
+        });
+    </script>
 </body>
 </html>
