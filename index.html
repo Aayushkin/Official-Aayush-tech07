@@ -62,85 +62,43 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
   <style>
-    /* Default - hide toggle button */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: #333;
-      cursor: pointer;
-    }
-
-    /* Default - nav visible */
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
-    /* Responsive for mobile and small screens */
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #8bb645;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-    }
-
-    /* Logo Styling */
-    .logo {
-      width: min(150px, 30vw);
-      height: auto;
-      border-radius: 6px;
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      .logo {
-        width: 100px;
-      }
-    }
-
-    /* Page Speed Enhancements */
+    /* Page Speed Enhancements (keeping this part) */
     img, video {
       max-width: 100%;
       height: auto;
     }
 
+    /* Basic Mobile Toggle Display (remains for script interaction, color updated) */
+    .menu-toggle {
+      display: none; /* Hidden by default, shown in media query */
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #f0f0f0; /* Updated color to be visible on dark header */
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block; /* Show toggle button on mobile */
+      }
+      /* The actual nav ul styling for mobile (when active or not) is now in style.css */
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy">
+    <div class="logo"> <!-- The div for the logo -->
+      <img src="assets/images/techno.jpg" alt="Aayush Tech Logo" loading="lazy"> <!-- The image itself -->
     </div>
-    <h1>Aayush Tech</h1>
+    <h1>Aayush Tech</h1> <!-- Site title -->
     <button class="menu-toggle" aria-label="Toggle Menu">
-      <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i> <!-- Hamburger icon -->
     </button>
-    <nav>
+    <nav> <!-- Navigation container -->
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" class="active-link">Home</a></li> <!-- Added active-link for demo -->
         <li><a href="about.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="https://portfolio.Aayush-Tech07.website/">Portfolio</a></li>
@@ -154,29 +112,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <main>
     <section class="hero">
-      <h2>Empowering Your Business with Innovative Technology</h2>
-      <p>We provide custom tech solutions to help businesses grow and succeed.</p>
-      <a href="services.html" class="btn-main">Explore Our Services</a>
+      <div class="hero-content reveal-on-scroll"> <!-- Added wrapper for animation -->
+        <h2>Empowering Your Business with Innovative Technology</h2>
+        <p>We provide custom tech solutions to help businesses grow and succeed.</p>
+        <a href="services.html" class="btn-main">Explore Our Services</a>
+      </div>
     </section>
 
-    <section class="about">
+    <section class="about content-section reveal-on-scroll">
       <h2>About Aayush Tech</h2>
-      <p>Founded with the vision of transforming businesses through advanced technology, Aayush Tech has been providing top-tier IT solutions for over a decade. We specialize in custom software development, IT consultation, and cutting-edge web solutions.</p>
-      <p>Our team of professionals is dedicated to delivering results that drive business growth. Whether you're looking for help with developing software or implementing new technologies, we are here to assist you every step of the way.</p>
+      <div class="about-content">
+        <div class="about-column">
+          <p>Founded with the vision of transforming businesses through advanced technology, Aayush Tech has been providing top-tier IT solutions for over a decade. We specialize in custom software development, IT consultation, and cutting-edge web solutions.</p>
+        </div>
+        <div class="about-column">
+          <p>Our team of professionals is dedicated to delivering results that drive business growth. Whether you're looking for help with developing software or implementing new technologies, we are here to assist you every step of the way.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="services">
+    <section class="services content-section reveal-on-scroll">
       <h2>Our Services</h2>
       <ul>
-        <li><strong>Custom Tech Solutions</strong> - Tailored software solutions that meet your business needs.</li>
-        <li><strong>Web Development</strong> - Building robust, scalable, and user-friendly websites.</li>
-        <li><strong>Software Development</strong> - Developing custom applications for businesses of all sizes.</li>
-        <li><strong>IT Consultation</strong> - Strategic advice to optimize your technology infrastructure.</li>
-        <li><strong>Tech Support</strong> - 24/7 tech support to ensure your systems run smoothly.</li>
+        <li><i class="fas fa-cogs"></i><strong>Custom Tech Solutions</strong> <span>- Tailored software solutions that meet your business needs.</span></li>
+        <li><i class="fas fa-laptop-code"></i><strong>Web Development</strong> <span>- Building robust, scalable, and user-friendly websites.</span></li>
+        <li><i class="fas fa-terminal"></i><strong>Software Development</strong> <span>- Developing custom applications for businesses of all sizes.</span></li>
+        <li><i class="fas fa-users-cog"></i><strong>IT Consultation</strong> <span>- Strategic advice to optimize your technology infrastructure.</span></li>
+        <li><i class="fas fa-headset"></i><strong>Tech Support</strong> <span>- 24/7 tech support to ensure your systems run smoothly.</span></li>
       </ul>
     </section>
 
-    <section class="cta">
+    <section class="cta reveal-on-scroll">
       <h3>Ready to Start?</h3>
       <p>If you're looking for technology solutions that can propel your business forward, get in touch with us today.</p>
       <a href="contact.html" class="btn-main">Contact Us</a>
@@ -186,7 +152,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <footer class="footer">
     <div class="footer-content">
       <h3>Aayush-Tech07.website</h3>
-      <p>Empowering Your Digital Future</p>
+      <p class="tagline">Empowering Your Digital Future</p>
       <div class="socials">
         <a href="https://www.facebook.com/people/Aayush-tech07/100091516755478/?_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://x.com/aayush_tech07" target="_blank"><i class="fab fa-twitter"></i></a>
